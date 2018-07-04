@@ -18,13 +18,17 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'gmarik/vundle'
 Plugin 'kien/ctrlp.vim'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mhinz/vim-signify'
 Plugin 'mileszs/ack.vim'
 Plugin 'plasticboy/vim-markdown'
 " Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'tclem/vim-arduino'
+" Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-sensible'
+" Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
@@ -69,6 +73,9 @@ set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 
 " Eyecandy section
 
+set termguicolors
+set background=dark               " Choose colors for a dark background
+colorscheme atomified
 set ruler                         " Show the cursor position all the time
 set wildmenu                      " Autocomplete-menu
 set visualbell                    " visual errors
@@ -78,7 +85,6 @@ set showtabline=1
 set lazyredraw
 set showmatch                     " brackets matching
 set backspace=indent,eol,start    " allow backspacing over everything in insert mode
-set background=dark               " Choose colors for a dark background
 syntax on
 set cursorline
 set list listchars=tab:»·,trail:· " Display extra whitespace
@@ -251,6 +257,15 @@ nnoremap <Leader>gr :Gread<CR>
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+
+
+" Signify section
+
+let g:signify_realtime = 1
+let g:signify_sign_change = '~'
+" let g:signify_line_highlight = 1
+set signcolumn=yes
 
 
 
