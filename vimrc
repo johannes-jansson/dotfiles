@@ -191,6 +191,12 @@ noremap <silent> <Leader>ss :vsp<CR>
 noremap <silent> <Leader>bn :bn<CR>
 noremap <silent> <Leader>bp :bp<CR>
 noremap <silent> <Leader>bd :bd<CR>
+noremap <silent> z0 :set foldlevel=0<CR>
+noremap <silent> z1 :set foldlevel=1<CR>
+noremap <silent> z2 :set foldlevel=2<CR>
+noremap <silent> z3 :set foldlevel=3<CR>
+noremap <silent> z4 :set foldlevel=4<CR>
+noremap <silent> z5 :set foldlevel=5<CR>
 
 " use w!! if you forgot sudo
 cmap w!! w !sudo tee % >/dev/null
