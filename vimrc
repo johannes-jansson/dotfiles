@@ -27,7 +27,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tclem/vim-arduino'
 " Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-sensible'
 " Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
@@ -36,24 +36,17 @@ Plugin 'vim-latex/vim-latex'
 " Plugin 'vim-scripts/YankRing.vim'
 " Plugin 'wincent/terminus'
 
-filetype plugin indent on
-
 
 
 " Basic settings section
 
 let mapleader=","
-set history=50
 set undolevels=1000
-set autoread
 set hidden
 set nobackup
 set foldmethod=indent
 set foldlevel=999
-set encoding=utf-8 
 set path+=**
-set autoindent
-" set showcmd
 set mouse=a
 set ttymouse=xterm2
 
@@ -65,7 +58,6 @@ set shiftwidth=2    " Autoindent tab length
 set tabstop=2       " Tab length
 set softtabstop=2
 set expandtab       " Tab = spaces
-set smarttab        " Difference between first tab and other tabs
 set smartindent     " Automatic indentation
 set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 
@@ -76,19 +68,13 @@ set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 set termguicolors
 set background=dark               " Choose colors for a dark background
 colorscheme atomified
-set ruler                         " Show the cursor position all the time
-set wildmenu                      " Autocomplete-menu
 set visualbell                    " visual errors
 set showmode
 set scrolloff=5
 set showtabline=1
 set lazyredraw
 set showmatch                     " brackets matching
-set backspace=indent,eol,start    " allow backspacing over everything in insert mode
-syntax on
 set cursorline
-set list listchars=tab:»·,trail:· " Display extra whitespace
-set laststatus=2                  " Always display the status line
 set relativenumber
 set number
 
@@ -120,7 +106,7 @@ function ToggleWrap()
     echo "Wrap ON"
     setlocal wrap linebreak nolist
     set virtualedit=
-    setlocal display+=lastline
+    "s setlocal display+=lastline
     noremap  <buffer> <silent> <Up>   gk
     noremap  <buffer> <silent> <Down> gj
     noremap  <buffer> <silent> <Home> g<Home>
@@ -140,7 +126,6 @@ noremap <silent> <Leader>ww :call ToggleWrap()<CR>
 " Search section
 
 set ignorecase  " Ignore case when searching
-set incsearch   " Do incremental searching
 set smartcase   " If there are any caps, go case-sensitive
 set hlsearch
 
