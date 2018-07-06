@@ -20,15 +20,17 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mhinz/vim-signify'
 Plugin 'mileszs/ack.vim'
+" Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'plasticboy/vim-markdown'
 " Plugin 'scrooloose/nerdcommenter'
 " Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'tclem/vim-arduino'
-" Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-sensible'
-" Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
@@ -67,7 +69,8 @@ set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 
 set termguicolors
 set background=dark               " Choose colors for a dark background
-colorscheme atomified
+" colorscheme atomified
+colorscheme jellybeans
 set visualbell                    " visual errors
 set showmode
 set scrolloff=5
@@ -182,6 +185,9 @@ noremap <silent> z2 :set foldlevel=2<CR>
 noremap <silent> z3 :set foldlevel=3<CR>
 noremap <silent> z4 :set foldlevel=4<CR>
 noremap <silent> z5 :set foldlevel=5<CR>
+noremap <silent> <Leader>a :A<CR>
+noremap <silent> <Leader>em :Emodel _
+noremap <silent> <Leader>ec :Econtroller _
 
 " use w!! if you forgot sudo
 cmap w!! w !sudo tee % >/dev/null
@@ -278,6 +284,12 @@ let g:syntastic_cpp_checkers=['gcc']
 
 nmap <silent> <leader>w :SyntasticToggleMode<CR>
 nmap <silent> <leader>s :SyntasticCheck<CR>
+
+" " Indent guide sections
+" 
+" let g:indent_guides_enable_on_vim_startup = 1
+" " hi IndentGuidesOdd  ctermbg=black
+" hi IndentGuidesEven ctermbg=grey18
 
 
 
