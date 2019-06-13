@@ -1,0 +1,96 @@
+# # Lines configured by zsh-newuser-install
+# HISTFILE=~/.histfile
+# HISTSIZE=1000
+# SAVEHIST=1000
+# setopt appendhistory autocd extendedglob nomatch notify
+# unsetopt beep
+# bindkey -v
+# # End of lines configured by zsh-newuser-install
+# # The following lines were added by compinstall
+# zstyle :compinstall filename '/Users/johannes/.zshrc'
+# 
+# autoload -Uz compinit
+# compinit
+# # End of lines added by compinstall
+# 
+# export EDITOR=/usr/local/bin/vim
+# 
+# # prompt
+# autoload -Uz promptinit
+# promptinit
+# prompt redhat
+# 
+# # NVM stuff
+# export NVM_DIR="/usr/local/opt/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# 
+# # MacPorts Installer addition
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# 
+# # Todo txt stuff
+# export TODOTXT_DEFAULT_ACTION=ls
+# alias t='todo.sh -d /Users/johannes/Dropbox/Backup/todo.txt_cli-2.9/todo.cfg'
+# alias tedit='vim /Users/johannes/Dropbox/txt/GTD/todo.txt'
+# 
+# # Git stuff
+# alias gitignore='cat ~/Dropbox/Backup/.gitignore >> .gitignore'
+# alias g=git
+# alias gitsum='~/code/git-summary/git-summary -l ~/code'
+# gi () { git "$@" | lolcat; }
+# 
+# # tmux stuff
+# alias tls="tmux list-sessions"
+# alias ta="tmux attach -t"
+# alias tn="tmux new -s"
+# 
+# # Random aliases
+# alias v=vim
+# alias pcp='particle compile photon'
+# alias pce='particle compile electron'
+# 
+# alias dockercleanup="docker rmi -f $(docker images | grep none | awk '{print $3}')"
+# 
+# alias csgocfg="vim /Users/johannes/Library/Application\ Support/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+# 
+# alias lapse="ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx264 timelapse.mp4"
+# 
+# alias venv="source venv/bin/activate"
+# 
+# alias ven="source venv/bin/activate"
+# 
+# # Markdown stuff
+# pdfmd () {
+#   pandoc -f markdown+tex_math_dollars+pipe_tables $1.md -o $1.tex
+#   pandoc $1.tex -o $1.pdf
+#   rm $1.tex
+# }
+# mdpdf () { pandoc -f markdown $1.md -o $1.pdf; }
+# 
+# # Completion stuff
+# # Append autocomplete scripts installed by brew
+# fpath=('/usr/local/share/zsh/site-functions' $fpath)
+# 
+# # Enable completion
+# autoload -Uz compinit
+# compinit
+# 
+# # Show currently selected completion in menu
+# zstyle ':completion:*:*:*:*:*' menu select
+# 
+# # Show colors in completion list
+# zstyle ':completion:*' list-colors ''
+# 
+# # case-insensitive (all),partial-word and then substring completion
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# 
+# 
+# function frameworkpython {
+#     if [[ ! -z "$VIRTUAL_ENV" ]]; then
+#         PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python3 "$@"
+#     else
+#         /usr/local/bin/python3 "$@"
+#     fi
+# }
+# 
+# source /usr/local/opt/autoenv/activate.sh
