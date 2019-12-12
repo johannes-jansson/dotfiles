@@ -1,6 +1,7 @@
 *.DS_Store
 .AppleDouble
 .LSOverride
+zshrc.secrets
 
 # Swap
 [._]*.s[a-v][a-z]
