@@ -16,6 +16,8 @@ alias csgocfg="vim /Users/johannes/Library/Application\ Support/Steam/steamapps/
 alias lapse="ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx264 timelapse.mp4"
 alias cstop="brew services stop chunkwm"
 alias cstart="brew services start chunkwm"
+alias ystop="brew services stop yabai"
+alias ystart="brew services start yabai"
 alias ven="source venv/bin/activate"
 alias venn="source ../venv/bin/activate"
 
@@ -84,6 +86,10 @@ eval "$(jenv init -)"
 if [ -f '/Users/johannes/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/johannes/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/johannes/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/johannes/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+zet() {
+  nvim "+Zet $*"
+}
 
 # Load secrets...
 source ~/.dotfiles/zshrc.secrets
