@@ -1,13 +1,13 @@
 set nocompatible
 
 set undolevels=1000
-set nohidden
-set nobackup
+set hidden
+" set nobackup
 set foldmethod=indent
 set foldlevel=999
 set mouse=a
-let $LANG = 'en_US'
-set directory^=$HOME/.vim/swap//
+" let $LANG = 'en_US'
+set directory^=$HOME/.vim/swap// " for swap files...
 set undofile
 set undodir=$HOME/.vim/undodir
 set nowrap
@@ -29,7 +29,6 @@ set hlsearch
 set spelllang=sv,en
 au BufRead,BufNewFile *.txt setlocal spell wrap nolist
 au BufRead,BufNewFile *.tex setlocal spell wrap nolist
-au BufRead,BufNewFile *.odt setlocal spell wrap nolist
 au BufRead,BufNewFile *.md setlocal spell wrap nolist
 
 " Toggle spellchecking
@@ -47,24 +46,20 @@ nnoremap <silent> <Leader>ts :call ToggleSpellCheck()<CR>
 set splitbelow
 set splitright
 
+" To make autoformatting python work
+" let g:formatter_yapf_style = 'pep8'
+
+" Conceal, used for hiding stuff in markdown and json
+" set conceallevel=0
+
+" commenting octave files
+" autocmd FileType octave setlocal commentstring=\%\ %s
+
 " Filetype for arduino files
 au BufRead,BufNewFile *.ino set filetype=arduino
 
-" To make autoformatting python work
-let g:formatter_yapf_style = 'pep8'
-
-" automatically close netrw when a file has been opened
-autocmd FileType netrw setl bufhidden=delete
-
-" Conceal, used for hiding stuff in markdown and json
-set conceallevel=0
-
-" commenting octave files
-autocmd FileType octave setlocal commentstring=\%\ %s
-
 augroup vimrcEx
   autocmd!
-
   " When editing a file, always jump to the last known cursor position.
   autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |

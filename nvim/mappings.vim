@@ -2,7 +2,7 @@ map <space> <leader>
 map ö [
 map ä ]
 
-" Leader mappings
+" leader
 nmap <silent> <leader>ev :e ~/.dotfiles/nvim/<CR>
 nmap <silent> <leader>ep :e ~/.dotfiles/nvim/plugins.vim<CR>
 nmap <silent> <leader>7 :nohlsearch<CR>
@@ -11,16 +11,16 @@ noremap <silent> <Leader>q :q<CR>
 noremap <Leader>e :e 
 noremap <Leader>v :vsp<CR> 
 noremap <Leader>s :sp<CR> 
-noremap <Leader>x :%bd\|e#<CR>
 noremap <silent> <Leader>c :copen<CR>
-noremap <silent> <Leader>bd :BD<CR>
 noremap <silent> <Leader>aa :A<CR>
 noremap <silent> <Leader>av :AV<CR>
-noremap <silent> <Leader>em :Emodel _
-noremap <silent> <Leader>ec :Econtroller _
-noremap <silent> <Leader>et :Etest _
+noremap <Leader>em :Emodel _
+noremap <Leader>ec :Econtroller _
+noremap <Leader>et :Etest _
 noremap <silent> <Leader>z :tabnew %<CR>
+noremap <Leader>b :ls<CR>:b<space>
 
+" folding 
 noremap <silent> z0 :set foldlevel=0<CR>
 noremap <silent> z1 :set foldlevel=1<CR>
 noremap <silent> z2 :set foldlevel=2<CR>
