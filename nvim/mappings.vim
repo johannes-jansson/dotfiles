@@ -3,8 +3,8 @@ map ö [
 map ä ]
 
 " leader
-nmap <silent> <leader>ev :e ~/.dotfiles/nvim/<CR>
-nmap <silent> <leader>ep :e ~/.dotfiles/nvim/plugins.vim<CR>
+nmap <silent> <leader>ev :e ~/dotfiles/nvim/<CR>
+nmap <silent> <leader>ep :e ~/dotfiles/nvim/plugins.vim<CR>
 nmap <silent> <leader>7 :nohlsearch<CR>
 noremap <silent> <Leader>w :w<CR>
 noremap <silent> <Leader>q :q<CR>
