@@ -24,14 +24,19 @@ alias cstop="brew services stop chunkwm"
 alias cstart="brew services start chunkwm"
 alias ystop="brew services stop yabai"
 alias ystart="brew services start yabai"
+alias yrestart="brew services restart yabai"
 alias ven="source venv/bin/activate"
 alias venn="source ../venv/bin/activate"
+
+alias psq="psql -d jojnts_development"
+alias pgc="pgcli -d jojnts_development"
 
 # tmux-aliases
 alias tls="tmux list-sessions"
 alias ta="tmux attach -t"
 alias tn="tmux new -s"
 alias ts="tmux kill-session -t "
+alias tsa="tmux kill-server"
 
 # Todo.txt-aliases
 alias t='todo.sh -d /Users/johannes/Dropbox/Backup/todo.txt_cli-2.9/todo.cfg'
@@ -101,7 +106,7 @@ zet() {
 }
 
 # Load secrets...
-source ~/.dotfiles/zshrc.secrets
+# source ~/dotfiles/zshrc.secrets
 
 # Python function for running venv stuff in X enviroment
 function frameworkpython {
