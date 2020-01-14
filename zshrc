@@ -1,5 +1,11 @@
 # Path:
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/Users/johannes/.pyenv/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export TODOTXT_DEFAULT_ACTION=ls
 
 # Aliases:
@@ -74,13 +80,16 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f ${vcs_info_msg_0_}'$'\n''    %F{111}>%f '
 
 # Ruby stuff
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
 export LDFLAGS="-L/usr/local/opt/readline/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include"
 export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+eval "$(rbenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/johannes/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/johannes/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -108,10 +117,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # NVM stuff
-export NVM_DIR="/usr/local/opt/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use default
+# export NVM_DIR="/usr/local/opt/nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+# # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm use default
 # source /usr/local/opt/autoenv/activate.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
