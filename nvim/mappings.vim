@@ -11,7 +11,7 @@ noremap <silent> <Leader>q :q<CR>
 noremap <Leader>e :e 
 noremap <Leader>v :vsp<CR> 
 noremap <Leader>s :sp<CR> 
-noremap <silent> <Leader>c :copen<CR>
+noremap <silent> <Leader>c :Copen<CR>
 noremap <silent> <Leader>aa :A<CR>
 noremap <silent> <Leader>av :AV<CR>
 noremap <Leader>em :Emodel _
@@ -19,6 +19,7 @@ noremap <Leader>ec :Econtroller _
 noremap <Leader>et :Etest _
 noremap <silent> <Leader>z :tabnew %<CR>
 noremap <Leader>b :ls<CR>:b<space>
+noremap <silent> <Leader>x :Dispatch!<CR>
 
 " folding 
 noremap <silent> z0 :set foldlevel=0<CR>

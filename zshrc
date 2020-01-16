@@ -5,6 +5,7 @@ export PATH="/Users/johannes/.pyenv/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PAGER="pspg -XF -s s"
 
 export TODOTXT_DEFAULT_ACTION=ls
 

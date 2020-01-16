@@ -165,6 +165,7 @@ nnoremap <Leader>* :Grepper -cword -noprompt<CR>
 
 " vim test
 let test#strategy = "dispatch"
+autocmd FileType sql let b:dispatch = 'psql -d jojnts_development -P pager=off -f %'
 
 " matchit
 " let b:match_words = '\<if\>:\<else[ ]if\>:\<else\>'
