@@ -29,6 +29,7 @@ alias ystart="brew services start yabai"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
 alias ven="source venv/bin/activate"
 alias venn="source ../venv/bin/activate"
+alias startup="/usr/bin/automator ~/startup.workflow"
 
 alias psq="psql -d jojnts_development"
 alias pgc="pgcli -d jojnts_development"
