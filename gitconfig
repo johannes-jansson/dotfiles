@@ -1,6 +1,8 @@
+[core]
+	editor = nvim
 [user]
-	name = johannes-jansson
 	email = johannes.e.jansson@gmail.com
+	name = Johannes Jansson
 
 [alias]
   co = checkout
