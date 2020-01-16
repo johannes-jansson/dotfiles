@@ -10,7 +10,7 @@ set noshowmode
 " set noruler
 
 " highlight overlength
-match Error /\%81v.\+/
+" match Error /\%81v.\+/
 
 " Theme
 set rtp+=~/.config/nvim/plugged/jellybeans.vim
