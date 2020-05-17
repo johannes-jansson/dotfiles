@@ -34,13 +34,15 @@ alias pgc="pgcli -d jojnts_development"
 alias aptible-eu="aptible db:tunnel ja-pg12 --environment jointacademy"
 alias aptible-stage="aptible db:tunnel ja-stage-pg12 --environment jointacademy-stage"
 alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
+alias hms="home-manager switch"
 
 # tmux-aliases
 alias tls="tmux list-sessions"
 alias ta="tmux attach -t"
+alias ts="tmux switch -t"
 alias tn="tmux new -s"
-alias ts="tmux kill-session -t "
-alias tsa="tmux kill-server"
+alias td="tmux kill-session -t "
+alias tda="tmux kill-server"
 
 # Todo.txt-aliases
 alias t='todo.sh -d /Users/johannes/Dropbox/Backup/todo.txt_cli-2.9/todo.cfg'
