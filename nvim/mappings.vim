@@ -8,15 +8,9 @@ nmap <silent> <leader>ep :e ~/dotfiles/nvim/plugins.vim<CR>
 nmap <silent> <leader>7 :nohlsearch<CR>
 noremap <silent> <Leader>w :w<CR>
 noremap <silent> <Leader>q :q<CR>
-noremap <Leader>e :e 
-noremap <Leader>v :vsp<CR> 
-noremap <Leader>s :sp<CR> 
+noremap <silent> <Leader>v :vsp<CR> 
+noremap <silent> <Leader>s :sp<CR> 
 noremap <silent> <Leader>c :Copen<CR>
-noremap <silent> <Leader>aa :A<CR>
-noremap <silent> <Leader>av :AV<CR>
-noremap <Leader>em :Emodel _
-noremap <Leader>ec :Econtroller _
-noremap <Leader>et :Etest _
 noremap <silent> <Leader>z :tabnew %<CR>
 noremap <Leader>b :ls<CR>:b<space>
 noremap <silent> <Leader>x :Dispatch!<CR>
@@ -40,5 +34,5 @@ nnoremap tc :tabclose<CR>
 " use w!! if you forgot sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" search for selected text
+" search for selected text by double tapping /
 vnoremap // y/<C-R>"<CR>

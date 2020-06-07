@@ -52,9 +52,6 @@ set splitright
 " Conceal, used for hiding stuff in markdown and json
 " set conceallevel=0
 
-" commenting octave files
-" autocmd FileType octave setlocal commentstring=\%\ %s
-
 " Filetype for arduino files
 au BufRead,BufNewFile *.ino set filetype=arduino
 

@@ -12,7 +12,6 @@
     pkgs.docker
     pkgs.docker-compose
     pkgs.fzf
-    pkgs.ag
     pkgs.git
     pkgs.gitAndTools.hub
     pkgs.git-lfs

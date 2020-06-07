@@ -147,11 +147,11 @@ export NVM_DIR="$HOME/.nvm"
 # nvm use default
 # source /usr/local/opt/autoenv/activate.sh
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # [ -f /usr/local/etc/bash_completion.d ] && source /usr/local/etc/bash_completion.d
 

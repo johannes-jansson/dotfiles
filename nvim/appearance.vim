@@ -24,4 +24,3 @@ let g:jellybeans_use_term_italics = 0
 let g:airline_theme='jellybeans'
 let g:airline_section_x='' " remove filetype
 let g:airline_section_y='' " replace encoding w 
-" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
