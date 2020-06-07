@@ -29,10 +29,7 @@
 
     # Graphical stuff
     # pkgs.kitty # not working, using manual install for now
-    pkgs.firefox
     pkgs.hasklig
-    pkgs.vlc
-    pkgs.dropbox
     # pkgs.slack
 
     # clojure stuff
@@ -42,7 +39,6 @@
     # Posgres stuff
     pkgs.postgresql_12
     # pkgs.postgresql_11
-    pkgs.pg_top
     pkgs.pgcli
     pkgs.pgtap
     pkgs.sqitchPg
@@ -51,6 +47,12 @@
     pkgs.hugo
 
     pkgs.imagemagick
+
+    # Not working on macos
+    pkgs.firefox
+    pkgs.vlc
+    pkgs.dropbox
+    pkgs.pg_top
   ];
 
   programs.neovim = {
