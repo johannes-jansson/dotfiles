@@ -31,7 +31,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'NLKNguyen/papercolor-theme'
 " Plug 'nvie/vim-flake8'
 " Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " Plug 'poetic/vim-textobj-javascript'
 " Plug 'qpkorr/vim-bufkill'
 " Plug 'rbong/vim-flog'
@@ -185,9 +185,9 @@ let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
 " Prettier
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'false'
-let g:prettier#config#trailing_comma = 'all'
+" let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#bracket_spacing = 'false'
+" let g:prettier#config#trailing_comma = 'all'
 " nmap <Leader>f <Plug>(Prettier)
 
 " Vim-pencil
