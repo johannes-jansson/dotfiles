@@ -11,6 +11,7 @@
     pkgs.docker
     pkgs.docker-compose
     pkgs.fzf
+    pkgs.ag
     pkgs.git
     pkgs.tig
     pkgs.htop
@@ -18,6 +19,7 @@
     pkgs.ripgrep
     pkgs.wget
     pkgs.httpie
+    pkgs.pgformatter
     pkgs.zsh
 
     # Graphical stuff
@@ -26,6 +28,11 @@
     pkgs.hasklig
     pkgs.vlc
     pkgs.dropbox
+    # pkgs.slack
+
+    # clojure stuff
+    pkgs.clojure
+    pkgs.leiningen
 
     # Posgres stuff
     # pkgs.postgres-12.2
@@ -47,7 +54,6 @@
 
   programs.tmux = {
     enable = true;
-    # plugins = [ pkgs.tmuxPlugins.continuum pkgs.tmuxPlugins.resurrect ];
     plugins = [
       {
         plugin = pkgs.tmuxPlugins.resurrect;
@@ -134,7 +140,6 @@
 
   # Dotfile stuff
   home.file.".zshrc".source = ~/dotfiles/zshrc;
-  # home.file.".tmux.conf".source = ~/dotfiles/tmux.conf;
   home.file.".gitconfig".source = ~/dotfiles/gitconfig;
   home.file.".config/kitty/kitty.conf".source = ~/dotfiles/kitty.conf;
   home.file.".config/nvim" = {
