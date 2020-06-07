@@ -24,6 +24,8 @@ set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 set ignorecase
 set smartcase
 set hlsearch
+set incsearch
+set inccommand=nosplit
 
 " Spelling section
 set spelllang=sv,en
