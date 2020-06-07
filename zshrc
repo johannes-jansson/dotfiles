@@ -64,7 +64,7 @@ export LANG=en_US.UTF-8
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=/home/johannes/.nix-profile/bin/nvim
 bindkey -v # vi mode
 unsetopt beep # no beep
 setopt appendhistory autocd nomatch notify
@@ -91,11 +91,11 @@ setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '(%b)'
 
 PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} [%D{%L:%M}]'$'\n''    %F{111}>%f '
-TMOUT=1
+# TMOUT=1
 
-TRAPALRM() {
-    zle reset-prompt
-}
+# TRAPALRM() {
+#     zle reset-prompt
+# }
 
 # Ruby stuff
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
@@ -153,8 +153,6 @@ if [ -n "${commands[fzf-share]}" ]; then
 fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-# [ -f /usr/local/etc/bash_completion.d ] && source /usr/local/etc/bash_completion.d
-
 
 # export PERL5LIB="/Users/simonwarg/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 
@@ -175,7 +173,6 @@ export PERL5LIB="/Users/johannes/.cpan/build/TAP-Parser-SourceHandler-pgTAP-3.35
 if [ -e /Users/johannes/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/johannes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
-eval $(thefuck --alias)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zprof
 # 1.3
