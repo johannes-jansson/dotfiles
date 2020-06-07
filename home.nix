@@ -13,6 +13,7 @@
     pkgs.fzf
     pkgs.ag
     pkgs.git
+    pkgs.git-lfs
     pkgs.tig
     pkgs.htop
     pkgs.jq
@@ -20,7 +21,11 @@
     pkgs.wget
     pkgs.httpie
     pkgs.pgformatter
+    pkgs.rsync
+    pkgs.todo-txt-cli
+    pkgs.ranger
     pkgs.zsh
+    pkgs.zsh-syntax-highlighting
 
     # Graphical stuff
     # pkgs.kitty # not working, using manual install for now
@@ -35,10 +40,12 @@
     pkgs.leiningen
 
     # Posgres stuff
-    # pkgs.postgres-12.2
+    pkgs.postgresql_12
+    # pkgs.postgresql_11
     pkgs.pg_top
     pkgs.pgcli
     pkgs.pgtap
+    pkgs.sqitchPg
     pkgs.pspg
 
     pkgs.hugo
