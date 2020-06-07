@@ -35,6 +35,7 @@ alias aptible-eu="aptible db:tunnel ja-pg12 --environment jointacademy"
 alias aptible-stage="aptible db:tunnel ja-stage-pg12 --environment jointacademy-stage"
 alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
 alias hms="home-manager switch"
+alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 
 # tmux-aliases
 alias tls="tmux list-sessions"
@@ -146,7 +147,11 @@ export NVM_DIR="$HOME/.nvm"
 # nvm use default
 # source /usr/local/opt/autoenv/activate.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
 
 # [ -f /usr/local/etc/bash_completion.d ] && source /usr/local/etc/bash_completion.d
 
