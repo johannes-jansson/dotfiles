@@ -141,12 +141,13 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 let g:deleft_remove_strategy="comment"
 
 " Ale
-let g:ale_linters = { 'javascript': ['eslint'], 'python': ['flake8'], 'json': ['jsonlint']}
+let g:ale_linters = { 'javascript': ['eslint'], 'python': ['flake8'], 'json': ['jsonlint'], 'sql': ['sqlint']}
 let g:ale_lint_on_text_changed = 'always'
 " let g:ale_lint_on_save = 1
 " let g:ale_lint_on_enter = 0
 " let g:ale_lint_on_filetype_changed = 1
-let g:ale_fixers = { 'javascript': ['eslint'], 'python': ['autopep8'], 'json': ['fixjson'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'python': ['autopep8'], 'json': ['fixjson'], 'sql': ['pgformatter'] }
+let g:ale_sql_pgformatter_options = '-g -s 2 -U 1 -u 1'
 
 nnoremap <Leader>f :ALEFix<CR>
 
