@@ -14,6 +14,9 @@ noremap <silent> <Leader>c :Copen<CR>
 noremap <silent> <Leader>z :tabnew %<CR>
 noremap <Leader>b :ls<CR>:b<space>
 noremap <silent> <Leader>x :Dispatch!<CR>
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+nnoremap <Leader>ö :Grepper<CR>
+nnoremap <Leader>i "=strftime("# %d of %b")<CR>P
 
 " folding 
 noremap <silent> z0 :set foldlevel=0<CR>

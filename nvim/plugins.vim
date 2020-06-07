@@ -1,6 +1,10 @@
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
+" Plug 'AndrewRadev/deleft.vim'
+" Plug 'andymass/vim-matchup'
+" Plug 'auwsmit/vim-active-numbers'
+Plug 'chaoren/vim-wordmotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -55,6 +59,36 @@ nnoremap <silent> <Leader>ö :Find<CR>
 nnoremap <silent> <Leader>p :Files<CR>
 nnoremap <silent> <Leader>* :Find <C-R><C-W><CR>
 
+" CtrlP section
+
+" nmap <leader>p :CtrlP<cr>
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" 
+" " Setup some default ignores
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+"   \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+" \}
+" 
+" " Use the nearest .git directory as the cwd
+" let g:ctrlp_working_path_mode = 'r'
+" 
+" " Easy bindings for its various modes
+" nmap <leader>bb :CtrlPBuffer<cr>
+" nmap <leader>bm :CtrlPMixed<cr>
+" nmap <leader>bs :CtrlPMRU<cr>
+
+
+" " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" let g:ctrlp_use_caching = 0
+" nnoremap <Leader>/ :Ack 
+
+
+" FZF
+nnoremap <Leader>p :Files<CR>
+
 " Fugitive
 " can be used to see old revs
 nnoremap <Leader>gl :Glog<CR>
@@ -96,12 +130,48 @@ nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> ]W <Plug>(ale_last)
 
+" Grepper
+let g:grepper = {}
+let g:grepper.tools = ['rg', 'git', 'grep']
+let g:grepper.searchreg = 1
+let g:grepper.highlight = 1
+" let g:grepper.prompt = '$t> '
+" let g:grepper.side = 0
+" nnoremap <Leader>ö :Grepper<cr>
+" let g:grepper.prompt_mapping_tool = '<Leader>ö'
+
+" vim test
+let test#strategy = "dispatch"
+autocmd FileType sql let b:dispatch = 'psql -d jojnts_development -P pager=off -f %'
+
+" matchit
+" let b:match_words = '\<if\>:\<else[ ]if\>:\<else\>'
+" let s:notelse = '\%(\<else\s\+\)\@<!'
+" let b:match_words = s:notelse . '\<if\>:\<else\s\+if\>:\<else\>,'
+"       \ . '\<while\>:\<continue\>:\<break\>:\<endwhile\>'
+let b:match_words = '\<while\>:\<continue\>:\<break\>:\<endwhile\>'
+
+let b:match_words .= ',`\%(if\|ifdef\|ifndef\)\>:`els\%(if\|e\)\>:`endif\>'
+
+" Mdn_query
+nnoremap <Leader>m :MdnQueryFirstMatch 
+
+" Terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+
+" Prettier
+" let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#bracket_spacing = 'false'
+" let g:prettier#config#trailing_comma = 'all'
+" nmap <Leader>f <Plug>(Prettier)
+
 " Vim-pencil
 let g:pencil#wrapModeDefault = 'soft'
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
+  autocmd FileType markdown,mkd,md call pencil#init()
+  autocmd FileType text            call pencil#init()
 augroup END
 
 " vim-thematic
