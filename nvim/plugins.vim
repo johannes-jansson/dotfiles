@@ -10,6 +10,7 @@ Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'NLKNguyen/papercolor-theme'                  " Light mode theme
 Plug 'reedes/vim-pencil'                           " Markdown tools
 Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
+Plug 'sirver/UltiSnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fireplace'
@@ -42,7 +43,6 @@ Plug 'wakatime/vim-wakatime'                       " Timetracking
 " Plug 'plasticboy/vim-markdown'
 " Plug 'poetic/vim-textobj-javascript'
 " Plug 'rbong/vim-flog'
-" Plug 'sirver/UltiSnips'
 " Plug 'tpope/vim-projectionist'
 " Plug 'vim-latex/vim-latex'
 " Plug 'yssl/QFEnter'
@@ -73,7 +73,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " UltiSnips
 " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsSnippetDirectories = ['~/.vim/nvim/UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['~/dotfiles/nvim/UltiSnips']
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"

@@ -1,12 +1,11 @@
-
-func! local#zettel#edit(...)
+function Zetteledit(...)
 
   " build the file name
   let l:sep = ''
   if len(a:000) > 0
     let l:sep = '-'
   endif
-  let l:fname = expand('~/notes/') . strftime("%F-%H%M") . l:sep . join(a:000, '-') . '.md'
+  let l:fname = expand('~/Dropbox/zet/') . strftime("%F-%H%M") . l:sep . join(a:000, '-') . '.md'
 
   " edit the new file
   exec "e " . l:fname
@@ -17,6 +16,6 @@ func! local#zettel#edit(...)
   else
     exec "normal ggO\<c-r>=strftime('%Y-%m-%d %H:%M')\<cr>\<cr>\<esc>G"
   endif
-endfunc
+endfunction
 
-command! -nargs=* Zet call local#zettel#edit(<f-args>)
+command! -nargs=* Zet call Zetteledit(<f-args>)
