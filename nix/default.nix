@@ -22,6 +22,7 @@
     pkgs.wget
     pkgs.httpie
     pkgs.pgformatter
+    pkgs.pandoc
     pkgs.rsync
     pkgs.todo-txt-cli
     pkgs.ranger
@@ -44,6 +45,9 @@
     pkgs.pgtap
     pkgs.sqitchPg
     pkgs.pspg
+
+    # Node stuff
+    pkgs.nodejs
 
     pkgs.hugo
 
