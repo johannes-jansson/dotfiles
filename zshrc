@@ -153,6 +153,7 @@ if [ -n "${commands[fzf-share]}" ]; then
 fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+export PGDATA=/home/johannes/pgdata
 
 # export PERL5LIB="/Users/simonwarg/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 
