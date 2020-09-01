@@ -66,7 +66,7 @@ export LANG=en_US.UTF-8
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-export EDITOR=/home/johannes/.nix-profile/bin/nvim
+export EDITOR=~/.nix-profile/bin/nvim
 bindkey -v # vi mode
 unsetopt beep # no beep
 setopt appendhistory autocd nomatch notify
