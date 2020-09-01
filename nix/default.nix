@@ -26,6 +26,7 @@
     pkgs.rsync
     pkgs.todo-txt-cli
     pkgs.ranger
+    pkgs.pandoc
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
 
