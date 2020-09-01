@@ -57,6 +57,8 @@ set splitright
 " Filetype for arduino files
 au BufRead,BufNewFile *.ino set filetype=arduino
 
+let g:markdown_folding = 1
+
 augroup vimrcEx
   autocmd!
   " When editing a file, always jump to the last known cursor position.
