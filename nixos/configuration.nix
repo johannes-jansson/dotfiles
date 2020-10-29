@@ -54,6 +54,7 @@
   #   pinentryFlavor = "gnome3";
   # };
   programs.zsh.enable = true;
+  programs.vim.defaultEditor = true;
 
   # List services that you want to enable:
 
@@ -71,12 +72,28 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+    extraConfig = "
+      load-module module-switch-on-connect
+    ";
+  };
+
+  # Enable bluetooth.
+  hardware.bluetooth = {
+    enable = true;
+    # extraConfig = "
+    #   [General]
+    #   Enable=Source,Sink,Media,Socket
+    # ";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "se";
-  services.xserver.xkbOptions = "eurosign:e,caps:swapescape";
+  services.xserver.layout = "se(mac)";
+  services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
