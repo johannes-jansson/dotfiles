@@ -35,6 +35,9 @@
     pkgs.hasklig
     # pkgs.slack
 
+    # haskell stuff
+    pkgs.ghc
+
     # clojure stuff
     pkgs.clojure
     pkgs.leiningen
