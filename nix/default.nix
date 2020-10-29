@@ -13,20 +13,21 @@
     pkgs.docker-compose
     pkgs.fzf
     pkgs.git
-    pkgs.gitAndTools.hub
     pkgs.git-lfs
-    pkgs.tig
+    pkgs.gitAndTools.hub
     pkgs.htop
-    pkgs.jq
-    pkgs.ripgrep
-    pkgs.wget
     pkgs.httpie
+    pkgs.jq
+    pkgs.neofetch
+    pkgs.pandoc
+    pkgs.pandoc
     pkgs.pgformatter
-    pkgs.pandoc
-    pkgs.rsync
-    pkgs.todo-txt-cli
     pkgs.ranger
-    pkgs.pandoc
+    pkgs.ripgrep
+    pkgs.rsync
+    pkgs.tig
+    pkgs.todo-txt-cli
+    pkgs.wget
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
 
