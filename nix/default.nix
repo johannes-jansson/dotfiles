@@ -25,6 +25,7 @@
     pkgs.ranger
     pkgs.ripgrep
     pkgs.rsync
+    pkgs.shellcheck
     pkgs.tig
     pkgs.todo-txt-cli
     pkgs.wget
