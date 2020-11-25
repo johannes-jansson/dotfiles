@@ -14,7 +14,7 @@
     pkgs.fzf
     pkgs.git
     pkgs.git-lfs
-    pkgs.gitAndTools.hub
+    pkgs.gitAndTools.gh
     pkgs.htop
     pkgs.httpie
     pkgs.jq
