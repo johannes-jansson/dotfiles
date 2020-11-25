@@ -70,6 +70,7 @@
   home.file.".zshrc".source = ~/dotfiles/zshrc;
   home.file.".gitconfig".source = ~/dotfiles/gitconfig;
   home.file.".config/kitty/kitty.conf".source = ~/dotfiles/kitty.conf;
+  home.file.".config/pgcli/config".source = ~/dotfiles/pgcli_conf;
   home.file.".config/nvim" = {
     source = ~/dotfiles/nvim;
     recursive = true;
