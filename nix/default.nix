@@ -28,6 +28,7 @@
     pkgs.tig
     pkgs.todo-txt-cli
     pkgs.wget
+    pkgs.wireguard
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
 
