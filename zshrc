@@ -39,6 +39,8 @@ alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1
 alias hms="home-manager switch"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 
+alias pgstart="pg_ctl -D jojnts_development -l logfile start"
+
 # tmux-aliases
 alias tls="tmux list-sessions"
 alias ta="tmux attach -t"
@@ -155,7 +157,7 @@ if [ -n "${commands[fzf-share]}" ]; then
 fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-export PGDATA=/home/johannes/pgdata
+# export PGDATA=/home/johannes/pgdata
 
 # export PERL5LIB="/Users/simonwarg/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 
