@@ -10,6 +10,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
+Plug 'mhinz/vim-grepper'
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'NLKNguyen/papercolor-theme'                  " Light mode theme
 Plug 'reedes/vim-pencil'                           " Markdown tools
