@@ -36,6 +36,7 @@
     # Graphical stuff
     # pkgs.kitty # not working, using manual install for now
     pkgs.hasklig
+    pkgs.insomnia
     # pkgs.slack
 
     # haskell stuff
