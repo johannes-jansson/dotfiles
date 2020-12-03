@@ -2,14 +2,15 @@
 
 {
   home.packages = [
-    pkgs.firefox
-    pkgs.chromium
-    pkgs.kitty
-    pkgs.vlc
     pkgs.awscli
+    pkgs.chromium
     pkgs.dropbox
-    pkgs.pg_top
+    pkgs.firefox
     pkgs.gparted
+    pkgs.kitty
+    pkgs.pg_top
+    pkgs.spectacle
+    pkgs.vlc
 
     # for generating gem nix
     pkgs.bundix
