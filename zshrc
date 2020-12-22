@@ -6,40 +6,28 @@ export PATH="/Users/johannes/.pyenv/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 export REVIEW_BASE=develop
+export EDITOR=~/.nix-profile/bin/nvim
 
 # Aliases:
 alias l="ls -ghA"
 alias vi=nvim
 alias vim=nvim
 alias naked='nvim -u ~/dotfiles/essential.vim'
-alias pcp='particle compile photon'
-alias pce='particle compile electron'
-alias pfu='particle flash --usb'
-alias rand='cat /dev/urandom | tr -dc '0-9a-zA-Z' | head -c100'
-alias gbutt="gcloud"
-alias csgocfg="vim /Users/johannes/Library/Application\ Support/Steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
 alias lapse="ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx264 timelapse.mp4"
-alias sstop="brew services stop skhd"
-alias sstart="brew services start skhd"
+alias rand='date | md5 | head -c16; echo'
 alias srestart="brew services restart skhd"
-alias ystop="brew services stop yabai"
-alias ystart="brew services start yabai"
+# alias ystop="brew services stop yabai"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
-alias ven="source venv/bin/activate"
-alias venn="source ../venv/bin/activate"
-alias startup="/usr/bin/automator ~/startup.workflow"
-alias psq="psql -d jojnts_development"
 alias pgc="pgcli -d jojnts_development"
-alias bujo="vim ~/Dropbox/journal/"
+
 alias aptible-eu="aptible db:tunnel ja-pg12 --environment jointacademy"
 alias aptible-eu2="aptible db:tunnel ja-pg12 --environment jointacademy 2>&1 >/dev/null | grep 'Connect at' | xargs sed -n -e 's/^Connect at //p'"
 alias aptible-stage="aptible db:tunnel ja-stage-pg12 --environment jointacademy-stage"
 alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
-alias hms="home-manager switch"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
-
-alias pgstart="pg_ctl -D jojnts_development -l logfile start"
+alias pgst="pg_ctl -D jojnts_development -l logfile start"
 
 # tmux-aliases
 alias tls="tmux list-sessions"
@@ -66,11 +54,10 @@ mdpdf () { pandoc -f markdown $1.md -o $1.pdf; }
 # ZSH settings:
 export LANG=en_US.UTF-8
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-export EDITOR=~/.nix-profile/bin/nvim
+HISTSIZE=100000
+SAVEHIST=100000
 bindkey -v # vi mode
-unsetopt beep # no beep
+unsetopt beep
 setopt appendhistory autocd nomatch notify
 
 # Enable completion
@@ -95,11 +82,6 @@ setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '(%b)'
 
 PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} [%D{%L:%M}]'$'\n''    %F{111}>%f '
-# TMOUT=1
-
-# TRAPALRM() {
-#     zle reset-prompt
-# }
 
 # Ruby stuff
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
