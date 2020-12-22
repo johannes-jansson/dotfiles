@@ -14,6 +14,7 @@
     pkgs.fzf
     pkgs.git
     pkgs.git-lfs
+    pkgs.gitAndTools.bfg-repo-cleaner
     pkgs.gitAndTools.gh
     pkgs.htop
     pkgs.httpie
