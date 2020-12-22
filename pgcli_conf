@@ -141,7 +141,7 @@ enable_pager = True
 
 # Use keyring to automatically save and load password in a secure manner 
 keyring = True
-pager = pspg -XF -s 11
+pager = pspg -XF -s s
 
 # [colors]
 # completion-menu.completion.current = "bg:#ffffff #000000"
