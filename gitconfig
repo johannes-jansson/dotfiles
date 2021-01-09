@@ -1,5 +1,5 @@
 [core]
-	editor = vim
+	editor = ~/.nix-profile/bin/nvim
 
 [user]
 	email = johannes.e.jansson@gmail.com
