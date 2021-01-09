@@ -1,10 +1,13 @@
 [core]
-	editor = nvim
+	editor = vim
+
 [user]
 	email = johannes.e.jansson@gmail.com
 	name = Johannes Jansson
+
 [github]
 	user = johannes-jansson
+
 [alias]
   co = checkout
   cob = checkout -b
@@ -14,7 +17,7 @@
   amend = commit -a --amend
   browse = !hub browse
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	summary = log --abbrev-commit --pretty=oneline --reverse
+	sum = log --abbrev-commit --pretty=oneline --reverse
 
   # list files which have changed since REVIEW_BASE
   # (REVIEW_BASE defaults to 'master' in my zshrc)
@@ -35,18 +38,21 @@
   # git reviewone foo.js bar.js
   reviewone = !nvim -p +\"tabdo Gdiff $REVIEW_BASE\" +\"let g:gitgutter_diff_base = '$REVIEW_BASE'\"
 
-
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
 [help]
-	autocorrect = -1
+	autocorrect = 0
+
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+
 [push]
-  # default = current
+  default = current
+
 [pull]
-  # default = current
+  default = current
 	rebase = true
