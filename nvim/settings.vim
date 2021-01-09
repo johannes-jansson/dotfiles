@@ -2,14 +2,12 @@ set nocompatible
 
 set undolevels=1000
 set hidden
-" set nobackup
 set foldmethod=indent
 set foldlevel=999
 set mouse=a
-" let $LANG = 'en_US'
-set directory^=$HOME/.vim/swap// " for swap files...
+set directory^=$HOME/.config/nvim/swap// " for swap files...
 set undofile
-set undodir=$HOME/.vim/undodir
+set undodir=$HOME/.config/nvim/undodir
 set nowrap
 
 " Tabs vs spaces section
@@ -47,12 +45,6 @@ nnoremap <silent> <Leader>ts :call ToggleSpellCheck()<CR>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
-" To make autoformatting python work
-" let g:formatter_yapf_style = 'pep8'
-
-" Conceal, used for hiding stuff in markdown and json
-" set conceallevel=0
 
 " Filetype for arduino files
 au BufRead,BufNewFile *.ino set filetype=arduino

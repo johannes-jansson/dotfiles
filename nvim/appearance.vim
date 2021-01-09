@@ -7,18 +7,14 @@ set cursorline
 set relativenumber
 set number
 set noshowmode
-" set noruler
 
-" highlight overlength
-" match Error /\%81v.\+/
-
-" Theme
+" Themes
 set rtp+=~/.config/nvim/plugged/jellybeans.vim
 set rtp+=~/.config/nvim/plugged/papercolor-theme
 set background=dark
 colorscheme jellybeans
-let g:jellybeans_use_gui_italics = 0
-let g:jellybeans_use_term_italics = 0
+let g:jellybeans_use_gui_italics = 1
+let g:jellybeans_use_term_italics = 1
 
 " Airline
 let g:airline_theme='jellybeans'
