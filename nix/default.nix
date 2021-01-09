@@ -9,8 +9,8 @@
     # Basic cli stuff
     pkgs.ctop
     pkgs.curl
-    pkgs.docker
-    pkgs.docker-compose
+    # pkgs.docker
+    # pkgs.docker-compose
     pkgs.fzf
     pkgs.git
     pkgs.git-lfs
@@ -20,55 +20,40 @@
     pkgs.httpie
     pkgs.jq
     pkgs.neofetch
+    pkgs.neovim
     pkgs.pandoc
-    pkgs.pandoc
-    pkgs.pgformatter
     pkgs.ranger
     pkgs.ripgrep
     pkgs.rsync
     pkgs.shellcheck
     pkgs.tig
-    pkgs.todo-txt-cli
     pkgs.wget
     pkgs.wireguard
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
 
-    # Graphical stuff
-    # pkgs.kitty # not working, using manual install for now
-    pkgs.hasklig
-    pkgs.insomnia
-    # pkgs.slack
-
-    # haskell stuff
-    pkgs.ghc
-
-    # clojure stuff
-    pkgs.clojure
-    pkgs.leiningen
-
-    # Posgres stuff
+    # Posgres
+    pkgs.pgcli
+    pkgs.pgformatter
+    pkgs.pgtap
     pkgs.postgresql_12
     # pkgs.postgresql_11
-    pkgs.pgcli
-    pkgs.pgtap
-    pkgs.sqitchPg
     pkgs.pspg
+    pkgs.sqitchPg
 
-    # Node stuff
-    pkgs.nodejs
+    # Graphical
+    # pkgs.kitty # not working, using manual install for now
+    pkgs.hasklig
+    # pkgs.slack
 
+    # Misc
+    pkgs.ghc
     pkgs.hugo
-
     pkgs.imagemagick
+    pkgs.nodejs
   ];
 
-  programs.neovim = {
-    enable = true;
-    withPython3 = true;
-  };
-
-  # Dotfile stuff
+  # Dotfiles
   home.file.".zshrc".source = ~/dotfiles/zshrc;
   home.file.".gitconfig".source = ~/dotfiles/gitconfig;
   home.file.".config/kitty/kitty.conf".source = ~/dotfiles/kitty.conf;

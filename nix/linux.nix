@@ -7,6 +7,7 @@
     pkgs.dropbox
     pkgs.firefox
     pkgs.gparted
+    pkgs.insomnia
     pkgs.kitty
     pkgs.pg_top
     pkgs.spectacle
