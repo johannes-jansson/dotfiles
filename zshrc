@@ -9,7 +9,7 @@ export PATH="/Users/johannes/.pyenv/bin:$PATH"
 alias l="ls -ghA"
 alias vi=nvim
 alias vim=nvim
-alias naked='nvim -u ~/dotfiles/essential.vim'
+alias naked='nvim -u ~/dotfiles/nvim/essential.vim'
 
 alias srestart="brew services restart skhd"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
@@ -34,8 +34,8 @@ alias rand='date | md5 | head -c16; echo'
 
 # Exports:
 export REVIEW_BASE=develop
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=~/.nix-profile/bin/nvim
+export VISUAL=~/.nix-profile/bin/nvim
 export PGDATA="~/.pgdata"
 
 
