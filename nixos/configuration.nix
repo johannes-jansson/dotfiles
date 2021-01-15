@@ -1,12 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
@@ -14,13 +10,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "jixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "jixos";
+  # networking.wireless.enable = true;      # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Enables wireless support via NetworkManager.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp61s0.useDHCP = true;
   networking.interfaces.wlp62s0.useDHCP = true;
@@ -30,25 +24,20 @@
     fontconfig.defaultFonts.monospace = [ "Hasklig" ];
   };
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "Europe/Stockholm";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "sv-latin1";
   };
 
-  # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages installed in system profile
   environment.systemPackages = with pkgs; [
     bash wget vim home-manager git zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
@@ -61,12 +50,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -92,16 +75,18 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "se(mac)";
-  services.xserver.xkbOptions = "eurosign:e,caps:escape";
+  services.xserver = {
+    enable = true;
+    layout = "se(mac)";
+    xkbOptions = "eurosign:e,caps:escape";
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
+    # Enable touchpad support.
+    libinput.enable = true;
 
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+    # Enable the KDE Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+  };
 
   # Enable Docker.
   virtualisation.docker.enable = true;
@@ -110,7 +95,7 @@
   users.users.johannes = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker"];
   };
 
   # This value determines the NixOS release from which the default
