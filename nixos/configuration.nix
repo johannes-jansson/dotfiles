@@ -25,9 +25,10 @@
   networking.interfaces.enp61s0.useDHCP = true;
   networking.interfaces.wlp62s0.useDHCP = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  fonts = {
+    fonts = with pkgs; [ hasklig ];
+    fontconfig.defaultFonts.monospace = [ "Hasklig" ];
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
