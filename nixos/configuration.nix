@@ -54,6 +54,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Bluetooth for Xfce
+  services.blueman.enable = true;
+
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio = {
@@ -84,8 +87,15 @@
     libinput.enable = true;
 
     # Enable the KDE Desktop Environment.
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    # displayManager.sddm.enable = true;
+    # desktopManager.plasma5.enable = true;
+
+    # Enable the Xfce Desktop Environment.
+    desktopManager = {
+      xterm.enable = false;
+      xfce.enable = true;
+    };
+    displayManager.defaultSession = "xfce";
   };
 
   # Enable Docker.
