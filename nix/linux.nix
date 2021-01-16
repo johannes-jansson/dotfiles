@@ -13,8 +13,12 @@
     pkgs.pinentry
     pkgs.spectacle
     pkgs.vlc
+    pkgs.xorg.xev
+    pkgs.xorg.xmodmap
 
     # for generating gem nix
     pkgs.bundix
   ];
+
+  home.file.".config/i3/config".source = ~/dotfiles/i3config;
 }
