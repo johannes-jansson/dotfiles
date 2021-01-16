@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    pkgs.anki
     pkgs.awscli
     pkgs.chromium
     pkgs.dropbox
