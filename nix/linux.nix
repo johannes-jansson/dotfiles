@@ -21,4 +21,5 @@
   ];
 
   home.file.".config/i3/config".source = ~/dotfiles/i3config;
+  home.file.".config/i3status/config".source = ~/dotfiles/i3statusconfig;
 }
