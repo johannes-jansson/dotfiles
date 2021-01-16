@@ -1,6 +1,5 @@
 # i3 config file (v4)
 
-# set $mod Mod1
 set $mod Mod3
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -149,3 +148,5 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+exec /home/johannes/.xinitrc

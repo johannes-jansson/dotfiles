@@ -22,4 +22,5 @@
 
   home.file.".config/i3/config".source = ~/dotfiles/i3;
   home.file.".config/i3status/config".source = ~/dotfiles/i3status;
+  home.file.".xinitrc".source = ~/dotfiles/xinitrc;
 }
