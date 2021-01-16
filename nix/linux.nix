@@ -20,6 +20,6 @@
     pkgs.bundix
   ];
 
-  home.file.".config/i3/config".source = ~/dotfiles/i3config;
-  home.file.".config/i3status/config".source = ~/dotfiles/i3statusconfig;
+  home.file.".config/i3/config".source = ~/dotfiles/i3;
+  home.file.".config/i3status/config".source = ~/dotfiles/i3status;
 }
