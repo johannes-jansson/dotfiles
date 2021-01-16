@@ -92,11 +92,18 @@
 
     # Enable the Xfce Desktop Environment.
     desktopManager = {
+      # default = "xfce";
       xterm.enable = false;
-      xfce.enable = true;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
     };
-    displayManager.defaultSession = "xfce";
+    windowManager.i3.enable = true;
+    displayManager.defaultSession = "xfce+i3";
   };
+  # - You cannot use both services.xserver.displayManager.defaultSession option and legacy options (services.xserver.desktopManager.default and services.xserver.windowManager.default).
 
   # Enable Docker.
   virtualisation.docker.enable = true;
