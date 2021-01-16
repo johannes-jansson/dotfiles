@@ -5,7 +5,6 @@
     pkgs.anki
     pkgs.awscli
     pkgs.chromium
-    pkgs.dropbox
     pkgs.firefox
     pkgs.gparted
     pkgs.insomnia

@@ -18,6 +18,12 @@
   networking.useDHCP = false;
   networking.interfaces.enp61s0.useDHCP = true;
   networking.interfaces.wlp62s0.useDHCP = true;
+  
+  # Allow dropbox
+  # networking.firewall = {
+  #   allowedTCPPorts = [ 17500 ];
+  #   allowedUDPPorts = [ 17500 ];
+  # };
 
   fonts = {
     fonts = with pkgs; [ hasklig ];
@@ -33,7 +39,7 @@
 
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
-    bash wget vim home-manager git zsh
+    bash wget vim home-manager git zsh dropbox-cli
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -107,6 +113,26 @@
 
   # Enable Docker.
   virtualisation.docker.enable = true;
+
+  # Enable dropbox
+  nixpkgs.config.allowUnfree = true;
+  systemd.user.services.dropbox = {
+    description = "Dropbox";
+    wantedBy = [ "graphical-session.target" ];
+    environment = {
+      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+    };
+    serviceConfig = {
+      ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
+      ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+      KillMode = "control-group"; # upstream recommends process
+      Restart = "on-failure";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Nice = 10;
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
