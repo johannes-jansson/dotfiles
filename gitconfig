@@ -4,6 +4,7 @@
 [user]
 	email = johannes.e.jansson@gmail.com
 	name = Johannes Jansson
+  signingkey = F49F4B27
 
 [github]
 	user = johannes-jansson
@@ -56,3 +57,9 @@
 [pull]
   default = current
 	rebase = true
+
+[gpg]
+	program = ~/.nix-profile/bin/gpg
+
+[commit]
+	gpgsign = true

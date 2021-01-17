@@ -4,6 +4,8 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/Users/johannes/.pyenv/bin:$PATH"
 
+export GPG_TTY=`tty`
+
 
 # Aliases:
 alias l="ls -ghA"
