@@ -1,6 +1,6 @@
 # i3 config file (v4)
 
-set $mod Mod3
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
