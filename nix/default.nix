@@ -44,6 +44,7 @@
 
     # Graphical
     # pkgs.kitty # not working, using manual install for now
+    pkgs.alacritty
     pkgs.hasklig
     # pkgs.slack
 
