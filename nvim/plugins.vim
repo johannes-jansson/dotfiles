@@ -9,6 +9,7 @@ Plug 'junegunn/goyo.vim'                           " Distraction free writing mo
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'NLKNguyen/papercolor-theme'                  " Light mode theme
+Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-pencil'                           " Markdown tools
 Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
 Plug 'sirver/UltiSnips'
@@ -103,13 +104,13 @@ augroup END
 
 " Vim-thematic
 let g:thematic#themes = {
-\ 'light' :{'colorscheme': 'PaperColor',
+\ 'light' :{'colorscheme': 'pencil',
 \           'background': 'light',
-\           'airline-theme': 'papercolor',
+\           'airline-theme': 'pencil',
 \          },
-\ 'dark' :{'colorscheme': 'jellybeans',
+\ 'dark' :{'colorscheme': 'pencil',
 \          'background': 'dark',
-\          'airline-theme': 'jellybeans',
+\          'airline-theme': 'pencil',
 \         },
 \ }
 nnoremap <Leader>d :ThematicPrevious<CR>

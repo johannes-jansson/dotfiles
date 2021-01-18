@@ -8,15 +8,12 @@ set relativenumber
 set number
 set noshowmode
 
-" Themes
-set rtp+=~/.config/nvim/plugged/jellybeans.vim
-set rtp+=~/.config/nvim/plugged/papercolor-theme
+" Theme
+set rtp+=~/.config/nvim/plugged/vim-pencil
 set background=dark
-colorscheme jellybeans
-let g:jellybeans_use_gui_italics = 1
-let g:jellybeans_use_term_italics = 1
+colorscheme pencil
 
 " Airline
-let g:airline_theme='jellybeans'
+let g:airline_theme='pencil'
 let g:airline_section_x='' " remove filetype
 let g:airline_section_y='' " replace encoding w 
