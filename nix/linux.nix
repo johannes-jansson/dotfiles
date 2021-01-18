@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    pkgs.alacritty
     pkgs.anki
     pkgs.awscli
     pkgs.chromium
@@ -22,5 +23,6 @@
 
   home.file.".config/i3/config".source = ~/dotfiles/i3;
   home.file.".config/i3status/config".source = ~/dotfiles/i3status;
+  home.file.".config/alacritty/alacritty.yml".source = ~/dotfiles/alacritty.yml;
   home.file.".xinitrc".source = ~/dotfiles/xinitrc;
 }

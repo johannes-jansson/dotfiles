@@ -1,0 +1,21 @@
+import:
+  - /home/johannes/dotfiles/colorschemes/pencil_dark.yaml
+
+font:
+  normal:
+    family: Hasklig
+    style: Light
+  bold:
+    family: Hasklig
+    style: Semibold
+  italic:
+    family: hasklig
+    style: Light Italic
+  bold_italic:
+    family: Hasklig
+    style: Semibold Italic
+  size: 9
+
+bell:
+  duration: 50
+  color: '#ffffff'
