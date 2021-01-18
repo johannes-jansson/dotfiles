@@ -6,6 +6,10 @@ set $mod Mod1
 # is used in the bar {} block below.
 font pango:Hasklig Light 8
 
+# Eliminate title bars
+default_border pixel
+# hide_edge_borders both
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -80,8 +84,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "term"
-set $ws2 "browse"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -147,6 +151,10 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        position top
+        mode hide
+        hidden_state hide
+        modifier $mod
 }
 
 exec /home/johannes/.xinitrc
