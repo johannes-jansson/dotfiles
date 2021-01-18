@@ -102,6 +102,11 @@ augroup pencil
   autocmd FileType text            call pencil#init()
 augroup END
 
+" Colorscheme
+set rtp+=~/.config/nvim/plugged/vim-pencil
+set background=dark
+colorscheme pencil
+
 " Vim-thematic
 let g:thematic#themes = {
 \ 'light' :{'colorscheme': 'pencil',
@@ -114,3 +119,8 @@ let g:thematic#themes = {
 \         },
 \ }
 nnoremap <Leader>d :ThematicPrevious<CR>
+
+" Airline
+let g:airline_theme='pencil'
+let g:airline_section_x='' " remove filetype
+let g:airline_section_y='' " replace encoding w 

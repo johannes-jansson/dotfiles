@@ -31,6 +31,17 @@ au BufRead,BufNewFile *.txt setlocal spell wrap nolist
 au BufRead,BufNewFile *.tex setlocal spell wrap nolist
 au BufRead,BufNewFile *.md setlocal spell wrap nolist
 
+" Appearance section
+set termguicolors
+set visualbell
+set scrolloff=5
+set lazyredraw
+set showmatch
+set cursorline
+set relativenumber
+set number
+set noshowmode
+
 " Toggle spellchecking
 function! ToggleSpellCheck()
   set spell!
