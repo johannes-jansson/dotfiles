@@ -39,7 +39,7 @@
 
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
-    bash wget vim home-manager git zsh dropbox-cli
+    bash wget vim home-manager git zsh dropbox-cli docker-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
