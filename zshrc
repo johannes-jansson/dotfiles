@@ -23,6 +23,7 @@ alias aptible-eu="aptible db:tunnel ja-pg12 --environment jointacademy"
 alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
 alias aptible-eu2="aptible db:tunnel ja-pg12 --environment jointacademy 2>&1 >/dev/null | grep 'Connect at' | xargs sed -n -e 's/^Connect at //p'"
 
+alias hms="home-manager switch"
 alias tls="tmux list-sessions"
 alias ta="tmux attach -t"
 alias ts="tmux switch -t"
@@ -64,8 +65,8 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 setopt PROMPT_SUBST
 zstyle ':vcs_info:git:*' formats '(%b)'
-
-PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f ${vcs_info_msg_0_} [%D{%L:%M}]'$'\n''    %F{111}>%f '
+PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f'$'\n''    %F{111}>%f '
+RPROMPT='${vcs_info_msg_0_} [%D{%L:%M}]'
 
 
 # FZF
