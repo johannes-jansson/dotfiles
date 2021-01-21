@@ -17,6 +17,9 @@ bell:
   duration: 50
   color: '#ffffff'
 
+window:
+  decorations: none
+
 color_schemes:
   # Pencil Dark
   dark: &dark
