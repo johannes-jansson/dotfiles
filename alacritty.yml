@@ -20,6 +20,31 @@ bell:
 window:
   decorations: none
 
+key_bindings:
+  # Swedish (sv_SE) https://github.com/jwilm/alacritty/wiki/Keyboard-mappings#swedish-sv_se
+  - { key: Key1,      mods: Alt,          chars: "\xA9"                  }
+  - { key: Key2,      mods: Alt,          chars: "\x40"                  }
+  - { key: Key3,      mods: Alt,          chars: "\xA3"                  }
+  - { key: Key4,      mods: Alt,          chars: "\x24"                  }
+  - { key: Key5,      mods: Alt,          chars: "∞"                     }
+  - { key: Key6,      mods: Alt,          chars: "\xA7"                  }
+  - { key: Key7,      mods: Alt,          chars: "\x7C"                  }
+  - { key: Key8,      mods: Alt,          chars: "\x5B"                  }
+  - { key: Key9,      mods: Alt,          chars: "\x5D"                  }
+  - { key: Key0,      mods: Alt,          chars: "≈"                     }
+  - { key: Minus,     mods: Alt,          chars: "\xB1"                  }
+  - { key: Key1,      mods: Alt|Shift,    chars: "\xA1"                  }
+  - { key: Key2,      mods: Alt|Shift,    chars: "”"                     }
+  - { key: Key3,      mods: Alt|Shift,    chars: "\xA5"                  }
+  - { key: Key4,      mods: Alt|Shift,    chars: "\x24"                  }
+  - { key: Key5,      mods: Alt|Shift,    chars: "‰"                     }
+  - { key: Key6,      mods: Alt|Shift,    chars: "\xB6"                  }
+  - { key: Key7,      mods: Alt|Shift,    chars: "\x5C"                  }
+  - { key: Key8,      mods: Alt|Shift,    chars: "\x7B"                  }
+  - { key: Key9,      mods: Alt|Shift,    chars: "\x7D"                  }
+  - { key: Key0,      mods: Alt|Shift,    chars: "≠"                     }
+  - { key: Minus,     mods: Alt|Shift,    chars: "\xBF"                  }
+
 color_schemes:
   # Pencil Dark
   dark: &dark
