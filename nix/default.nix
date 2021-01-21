@@ -20,6 +20,7 @@
     pkgs.htop
     pkgs.httpie
     pkgs.jq
+    pkgs.mdcat
     pkgs.neofetch
     pkgs.neovim
     pkgs.pandoc
