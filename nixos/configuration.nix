@@ -39,16 +39,15 @@
 
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
-    bash wget vim home-manager git zsh dropbox-cli docker-compose
+    bash wget vim home-manager git zsh dropbox-cli docker-compose pinentry
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  #   pinentryFlavor = "gnome3";
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
   programs.zsh.enable = true;
   programs.vim.defaultEditor = true;
 
@@ -62,6 +61,9 @@
 
   # Bluetooth for Xfce
   services.blueman.enable = true;
+
+  # keyring
+  services.gnome3.gnome-keyring.enable = true;
 
   # Enable sound.
   sound.enable = true;

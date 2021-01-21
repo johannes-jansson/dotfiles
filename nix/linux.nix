@@ -10,7 +10,6 @@
     pkgs.insomnia
     pkgs.kitty
     pkgs.pg_top
-    pkgs.pinentry
     pkgs.spectacle
     pkgs.vlc
     pkgs.xorg.xev

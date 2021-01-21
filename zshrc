@@ -68,6 +68,9 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f'$'\n''    %F{111}>%f '
 RPROMPT='${vcs_info_msg_0_} [%D{%L:%M}]'
 
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
 
 # FZF
 if [ -n "${commands[fzf-share]}" ]; then source "$(fzf-share)/key-bindings.zsh"
