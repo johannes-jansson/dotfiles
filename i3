@@ -107,6 +107,11 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+bindsym $mod+Control+x workspace number $ws4
+bindsym $mod+Mod4+1 workspace number $ws1
+bindsym $mod+Mod4+2 workspace number $ws2
+bindsym $mod+Mod4+3 workspace number $ws3
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -118,6 +123,11 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym Mod4+Control+x move container to workspace number $ws4
+bindsym Mod4+Shift+1 move container to workspace number $ws1
+bindsym Mod4+Shift+2 move container to workspace number $ws2
+bindsym Mod4+Shift+3 move container to workspace number $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
