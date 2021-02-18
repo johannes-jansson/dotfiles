@@ -1,17 +1,17 @@
-font:
-  normal:
-    family: Hasklig
-    style: Light
-  bold:
-    family: Hasklig
-    style: Semibold
-  italic:
-    family: hasklig
-    style: Light Italic
-  bold_italic:
-    family: Hasklig
-    style: Semibold Italic
-  size: 9
+# font:
+#   normal:
+#     family: Hasklig
+#     style: Light
+#   bold:
+#     family: Hasklig
+#     style: Semibold
+#   italic:
+#     family: Hasklig
+#     style: Light Italic
+#   bold_italic:
+#     family: Hasklig
+#     style: Semibold Italic
+#   size: 9
 
 bell:
   duration: 50
@@ -70,7 +70,6 @@ color_schemes:
       magenta: '0x6855de'
       cyan:    '0x4fb8cc'
       white:   '0xf1f1f1'
-  
   # Pencil Light
   light: &light
     primary:
