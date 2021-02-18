@@ -40,5 +40,6 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Sonos$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^1Password" manage=off
+yabai -m rule --add app="^dmenu" manage=off
 
 yabai -m config window_topmost on

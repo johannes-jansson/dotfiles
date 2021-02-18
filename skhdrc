@@ -1,5 +1,6 @@
 # open terminal
 cmd - return : open -a alacritty
+cmd - space : open -a dmenu-mac
 
 # focus window
 alt - h : yabai -m window --focus west
