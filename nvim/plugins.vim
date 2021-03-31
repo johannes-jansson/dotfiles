@@ -1,15 +1,14 @@
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
-Plug 'chaoren/vim-wordmotion'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'nbouscal/vim-stylish-haskell'
-Plug 'nlknguyen/papercolor-theme'                  " Light mode theme
 Plug 'prettier/vim-prettier'
 Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-pencil'                           " Markdown tools
@@ -31,6 +30,7 @@ Plug 'w0rp/ale'                                    " Linting
 " Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
 " Plug 'auwsmit/vim-active-numbers'
 " Plug 'auwsmit/vim-active-numbers'
+" Plug 'chaoren/vim-wordmotion'
 " Plug 'ervandew/supertab'
 " Plug 'google/vim-searchindex'
 " Plug 'guns/vim-clojure-static'
@@ -53,6 +53,9 @@ Plug 'w0rp/ale'                                    " Linting
 call plug#end()
 
 " Finding (mostly fzf)
+if executable('rg')
+    set grepprg=rg\ --color=never\ --vimgrep
+endif
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap <silent> <Leader>ö :Find<CR>
 nnoremap <silent> <Leader>p :Files<CR>
