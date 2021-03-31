@@ -58,7 +58,6 @@ setopt appendhistory autocd nomatch notify
 autoload -Uz compinit
 compinit
 fpath=('/usr/local/share/zsh/site-functions' $fpath)
-kitty + complete setup zsh | source /dev/stdin
 
 # Load zsh git info
 autoload -Uz vcs_info
