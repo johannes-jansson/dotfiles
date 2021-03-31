@@ -11,9 +11,12 @@
     pkgs.kitty
     pkgs.pg_top
     pkgs.spectacle
+    pkgs.texlive.combined.scheme-medium
+    pkgs.unzip
     pkgs.vlc
     pkgs.xorg.xev
     pkgs.xorg.xmodmap
+    pkgs.zip
 
     # for generating gem nix
     pkgs.bundix
