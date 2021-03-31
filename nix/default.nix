@@ -23,6 +23,7 @@
     pkgs.mdcat
     pkgs.neofetch
     pkgs.neovim
+    pkgs.nodePackages.prettier
     pkgs.pandoc
     pkgs.ranger
     pkgs.ripgrep
@@ -51,6 +52,7 @@
 
     # Misc
     pkgs.ghc
+    pkgs.stylish-haskell
     pkgs.hugo
     pkgs.imagemagick
     pkgs.nodejs

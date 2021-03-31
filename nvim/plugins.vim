@@ -8,7 +8,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
-Plug 'NLKNguyen/papercolor-theme'                  " Light mode theme
+Plug 'nbouscal/vim-stylish-haskell'
+Plug 'nlknguyen/papercolor-theme'                  " Light mode theme
+Plug 'prettier/vim-prettier'
 Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-pencil'                           " Markdown tools
 Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
@@ -85,7 +87,7 @@ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 " Ale
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_linters = { 'javascript': ['eslint'], 'python': ['flake8'], 'json': ['jsonlint'], 'sql': ['sqlint']}
-let g:ale_fixers = { 'javascript': ['eslint'], 'python': ['autopep8'], 'json': ['fixjson'], 'sql': ['pgformatter'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'python': ['autopep8'], 'json': ['fixjson'], 'sql': ['pgformatter'], 'haskell': ['stylish-haskell'] }
 let g:ale_sql_pgformatter_options = '--nogrouping --spaces 2 --type-case 1 --keyword-case 1'
 nnoremap <Leader>f :ALEFix<CR>
 " vim-unimpaired-style mappings for ale
