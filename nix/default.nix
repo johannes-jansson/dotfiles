@@ -61,6 +61,7 @@
     pkgs.hugo
     pkgs.imagemagick
     pkgs.nodejs
+    pkgs.languagetool
   ];
 
   # Dotfiles
