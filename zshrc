@@ -43,10 +43,6 @@ alias lapse="ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx26
 alias rand='date | md5 | head -c16; echo'
 
 
-# Markdown to pdf
-mdpdf () { pandoc -f markdown $1.md -o $1.pdf; }
-
-
 # ZSH
 export LANG=en_US.UTF-8
 HISTFILE=~/.histfile HISTSIZE=100000
