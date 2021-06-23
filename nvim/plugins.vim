@@ -2,11 +2,12 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dpelle/vim-LanguageTool'
 Plug 'junegunn/fzf'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'nbouscal/vim-stylish-haskell'
 Plug 'prettier/vim-prettier'
@@ -129,3 +130,7 @@ nnoremap <Leader>td :ThematicPrevious<CR>
 let g:airline_theme='pencil'
 let g:airline_section_x='' " remove filetype
 let g:airline_section_y='' " replace encoding w 
+
+" let g:languagetool_jar='$HOME/.nix-profile/bin/languagetool-commandline'
+let g:languagetool_cmd='$HOME/.nix-profile/bin/languagetool-commandline'
+let g:languagetool_lang='en-US'

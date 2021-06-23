@@ -38,6 +38,7 @@
     pkgs.wireguard
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
+    pkgs.languagetool
 
     # Posgres
     pkgs.pgcli
