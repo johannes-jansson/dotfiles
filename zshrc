@@ -3,8 +3,15 @@
 # Path:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/Users/johannes/.pyenv/bin:$PATH"
-
 export GPG_TTY=`tty`
+
+
+# Exports:
+export REVIEW_BASE=develop
+export EDITOR=~/.nix-profile/bin/nvim
+export VISUAL=~/.nix-profile/bin/nvim
+export PGDATA="/Users/johannes/.pgdata"
+export NOTESDIR="/Users/johannes/Dropbox/md"
 
 
 # Aliases:
@@ -12,6 +19,7 @@ alias l="ls -ghA"
 alias vi=nvim
 alias vim=nvim
 alias naked='nvim -u ~/dotfiles/nvim/essential.vim'
+alias notes="nvim $NOTESDIR/$(date +'%Y-%m-%d').md --cmd 'cd %:p:h'"
 
 alias srestart="brew services restart skhd"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
@@ -33,13 +41,6 @@ alias tda="tmux kill-server"
 
 alias lapse="ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx264 timelapse.mp4"
 alias rand='date | md5 | head -c16; echo'
-
-
-# Exports:
-export REVIEW_BASE=develop
-export EDITOR=~/.nix-profile/bin/nvim
-export VISUAL=~/.nix-profile/bin/nvim
-export PGDATA="~/.pgdata"
 
 
 # Markdown to pdf

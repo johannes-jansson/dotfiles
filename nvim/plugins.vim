@@ -123,7 +123,7 @@ let g:thematic#themes = {
 \          'airline-theme': 'pencil',
 \         },
 \ }
-nnoremap <Leader>d :ThematicPrevious<CR>
+nnoremap <Leader>td :ThematicPrevious<CR>
 
 " Airline
 let g:airline_theme='pencil'
