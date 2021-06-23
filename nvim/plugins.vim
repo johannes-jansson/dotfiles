@@ -1,6 +1,7 @@
 call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'junegunn/fzf'
@@ -14,6 +15,7 @@ Plug 'prettier/vim-prettier'
 Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-pencil'                           " Markdown tools
 Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
+Plug 'rhysd/vim-grammarous'
 Plug 'sirver/UltiSnips'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -131,6 +133,8 @@ let g:airline_theme='pencil'
 let g:airline_section_x='' " remove filetype
 let g:airline_section_y='' " replace encoding w 
 
+" LanguageTool
 " let g:languagetool_jar='$HOME/.nix-profile/bin/languagetool-commandline'
+" let g:grammarous#languagetool_cmd = 'languagetool'
 let g:languagetool_cmd='$HOME/.nix-profile/bin/languagetool-commandline'
 let g:languagetool_lang='en-US'
