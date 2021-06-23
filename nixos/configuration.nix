@@ -63,7 +63,8 @@
   services.blueman.enable = true;
 
   # keyring
-  services.gnome3.gnome-keyring.enable = true;
+  # warning: The option `services.gnome3.gnome-keyring.enable' defined in `/etc/nixos/configuration.nix' has been renamed to `services.gnome.gnome-keyring.enable'
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable sound.
   sound.enable = true;
