@@ -28,3 +28,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " search for selected text by double tapping /
 vnoremap // y/<C-R>"<CR>
+
+" Copy selected text to system clipboard (macos and linux)
+vnoremap <silent> <leader>y "*y :let @+=@*<cr>
