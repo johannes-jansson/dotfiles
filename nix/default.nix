@@ -73,4 +73,6 @@
     source = ~/dotfiles/nvim;
     recursive = true;
   };
+
+  manual.manpages.enable = false;
 }
