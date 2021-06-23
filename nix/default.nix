@@ -7,6 +7,8 @@
 
   home.packages = [
     # Basic cli stuff
+    pkgs.bandwhich
+    pkgs.bat
     pkgs.ctop
     pkgs.curl
     # pkgs.docker
@@ -27,9 +29,11 @@
     pkgs.pandoc
     pkgs.ranger
     pkgs.ripgrep
+    pkgs.ripgrep-all
     pkgs.rsync
     pkgs.shellcheck
     pkgs.tig
+    pkgs.tealdeer
     pkgs.wget
     pkgs.wireguard
     pkgs.zsh
