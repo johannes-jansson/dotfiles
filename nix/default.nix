@@ -22,23 +22,24 @@
     pkgs.htop
     pkgs.httpie
     pkgs.jq
+    pkgs.languagetool
     pkgs.mdcat
     pkgs.neofetch
     pkgs.neovim
     pkgs.nodePackages.prettier
+    pkgs.openvpn
     pkgs.pandoc
     pkgs.ranger
     pkgs.ripgrep
     pkgs.ripgrep-all
     pkgs.rsync
     pkgs.shellcheck
-    pkgs.tig
     pkgs.tealdeer
+    pkgs.tig
     pkgs.wget
     pkgs.wireguard
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
-    pkgs.languagetool
 
     # Posgres
     pkgs.pgcli
@@ -54,6 +55,10 @@
     pkgs.alacritty
     pkgs.hasklig
     # pkgs.slack
+
+    # Security
+    # pkgs.nmap
+    pkgs.gobuster
 
     # Misc
     pkgs.ghc
