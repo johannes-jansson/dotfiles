@@ -57,8 +57,11 @@
     # pkgs.slack
 
     # Security
-    # pkgs.nmap
     pkgs.gobuster
+    # pkgs.hashcat
+    pkgs.john
+    pkgs.samba
+    pkgs.sqlmap
 
     # Misc
     pkgs.ghc
