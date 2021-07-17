@@ -18,6 +18,9 @@
     pkgs.xorg.xmodmap
     pkgs.zip
 
+    pkgs.thc-hydra
+    pkgs.nmap
+
     # for generating gem nix
     pkgs.bundix
   ];
