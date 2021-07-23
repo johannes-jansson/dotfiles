@@ -70,6 +70,10 @@
     pkgs.imagemagick
     pkgs.nodejs
     pkgs.languagetool
+    pkgs.elmPackages.elm-language-server
+    pkgs.elmPackages.elm
+    pkgs.elmPackages.elm-test
+    pkgs.elmPackages.elm-format
   ];
 
   # Dotfiles

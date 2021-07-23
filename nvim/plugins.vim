@@ -1,16 +1,16 @@
 call plug#begin()
 
-Plug 'airblade/vim-gitgutter'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'junegunn/fzf'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'luochen1990/rainbow'                         " Rainbow paranthesis
 Plug 'nanotech/jellybeans.vim'                     " Dark mode theme
 Plug 'nbouscal/vim-stylish-haskell'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier'
 Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-pencil'                           " Markdown tools
@@ -28,7 +28,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-airline/vim-airline'                     " Simple feature rich statusbar
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'                                    " Linting
+" Plug 'w0rp/ale'                                    " Linting
 
 " Plug 'SevereOverfl0w/clojure-check', {'do': './install'}
 " Plug 'auwsmit/vim-active-numbers'
