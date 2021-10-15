@@ -24,6 +24,7 @@
     pkgs.jq
     pkgs.languagetool
     pkgs.mdcat
+    pkgs.mosh
     pkgs.neofetch
     pkgs.neovim
     pkgs.nodePackages.prettier
@@ -60,7 +61,7 @@
     pkgs.gobuster
     # pkgs.hashcat
     pkgs.john
-    pkgs.samba
+    # pkgs.samba
     pkgs.sqlmap
 
     # Misc
