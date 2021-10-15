@@ -3,6 +3,7 @@
 # Path:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/Users/johannes/.pyenv/bin:$PATH"
+export PATH="/opt/metasploit-framework/bin/:$PATH"
 export GPG_TTY=`tty`
 
 
@@ -27,8 +28,8 @@ alias pgc="pgcli -d jojnts_development"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 alias pgst="pg_ctl -D jojnts_development -l logfile start"
 
-alias aptible-eu="aptible db:tunnel ja-pg12 --environment jointacademy"
-alias aptible-us="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
+alias aptible-eu="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy"
+alias aptible-us="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy-us-west-1"
 alias aptible-eu2="aptible db:tunnel ja-pg12 --environment jointacademy 2>&1 >/dev/null | grep 'Connect at' | xargs sed -n -e 's/^Connect at //p'"
 
 alias hms="home-manager switch"
