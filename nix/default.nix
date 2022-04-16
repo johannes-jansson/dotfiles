@@ -7,13 +7,14 @@
 
   home.packages = [
     # Basic cli stuff
-    pkgs.bandwhich
     pkgs.bat
+    pkgs.circleci-cli
     pkgs.ctop
     pkgs.curl
     # pkgs.docker
     # pkgs.docker-compose
     pkgs.fzf
+    pkgs.redoc-cli
     pkgs.git
     pkgs.git-lfs
     pkgs.gitAndTools.bfg-repo-cleaner
@@ -22,10 +23,14 @@
     pkgs.htop
     pkgs.httpie
     pkgs.jq
+    pkgs.kubectl
+    pkgs.k9s
     pkgs.languagetool
     pkgs.mdcat
+    pkgs.moreutils
     pkgs.mosh
     pkgs.neofetch
+    pkgs.heroku
     pkgs.neovim
     pkgs.nodePackages.prettier
     pkgs.openvpn
@@ -38,7 +43,7 @@
     pkgs.tealdeer
     pkgs.tig
     pkgs.wget
-    pkgs.wireguard
+    # pkgs.wireguard-tools
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
 
@@ -58,11 +63,11 @@
     # pkgs.slack
 
     # Security
-    pkgs.gobuster
+    # pkgs.gobuster
     # pkgs.hashcat
-    pkgs.john
+    # pkgs.john
     # pkgs.samba
-    pkgs.sqlmap
+    # pkgs.sqlmap
 
     # Misc
     pkgs.ghc
