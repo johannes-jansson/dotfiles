@@ -21,7 +21,7 @@
     pkgs.gitAndTools.gh
     pkgs.gnupg
     pkgs.htop
-    pkgs.httpie
+    # pkgs.httpie
     pkgs.jq
     pkgs.kubectl
     pkgs.k9s
@@ -31,7 +31,6 @@
     pkgs.mosh
     pkgs.neofetch
     pkgs.heroku
-    pkgs.neovim
     pkgs.nodePackages.prettier
     pkgs.openvpn
     pkgs.pandoc
@@ -72,7 +71,7 @@
     # Misc
     pkgs.ghc
     pkgs.stylish-haskell
-    pkgs.hugo
+    # pkgs.hugo
     pkgs.imagemagick
     pkgs.nodejs
     pkgs.languagetool
@@ -81,6 +80,27 @@
     pkgs.elmPackages.elm-test
     pkgs.elmPackages.elm-format
   ];
+
+  programs.neovim = {
+    enable = true;
+    withPython3 = true;
+    extraConfig = ''
+        source ~/dotfiles/nvim/essential.vim
+        source ~/dotfiles/nvim/settings.vim
+        source ~/dotfiles/nvim/plugins.vim
+        source ~/dotfiles/nvim/mappings.vim
+        source ~/dotfiles/nvim/notes.vim
+      '';
+    extraPackages = with pkgs; [
+      (python3.withPackages (ps: with ps; [
+        black
+        flake8
+      ]))
+    ];
+    extraPython3Packages = (ps: with ps; [
+      pynvim
+    ]);
+  };
 
   # Dotfiles
   home.file.".zshrc".source = ~/dotfiles/zshrc;

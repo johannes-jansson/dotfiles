@@ -5,7 +5,7 @@ set hidden
 set foldmethod=indent
 set foldlevel=999
 set mouse=a
-set directory^=$HOME/.config/nvim/swap// " for swap files...
+set directory^=$HOME/.config/nvim/swap//
 set undofile
 set undodir=$HOME/.config/nvim/undodir
 set nowrap
@@ -18,19 +18,6 @@ set expandtab       " Tab = spaces
 set smartindent     " Automatic indentation
 set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 
-" Search section
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-set inccommand=nosplit
-
-" Spelling section
-set spelllang=sv,en
-au BufRead,BufNewFile *.txt setlocal spell wrap nolist
-au BufRead,BufNewFile *.tex setlocal spell wrap nolist
-au BufRead,BufNewFile *.md setlocal spell wrap nolist
-
 " Appearance section
 set termguicolors
 set visualbell
@@ -41,6 +28,13 @@ set cursorline
 set relativenumber
 set number
 set noshowmode
+
+" Spelling section
+set spelllang=sv,en
+au BufRead,BufNewFile *.txt setlocal spell wrap nolist
+au BufRead,BufNewFile *.tex setlocal spell wrap nolist
+au BufRead,BufNewFile *.md setlocal spell wrap nolist
+au BufRead,BufNewFile *.markdown setlocal spell wrap nolist
 
 " Toggle spellchecking
 function! ToggleSpellCheck()
@@ -56,11 +50,6 @@ nnoremap <silent> <Leader>ts :call ToggleSpellCheck()<CR>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-
-" Filetype for arduino files
-au BufRead,BufNewFile *.ino set filetype=arduino
-
-let g:markdown_folding = 1
 
 augroup vimrcEx
   autocmd!
