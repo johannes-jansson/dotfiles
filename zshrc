@@ -21,15 +21,21 @@ alias vi=nvim
 alias vim=nvim
 alias naked='nvim -u ~/dotfiles/nvim/essential.vim'
 alias notes="nvim $NOTESDIR/$(date +'%Y-%m-%d').md --cmd 'cd %:p:h'"
+alias pedit="pbpaste | vipe | pbcopy"
 
 alias srestart="brew services restart skhd"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
 alias pgc="pgcli -d jojnts_development"
+alias pgb="pgcli -h localhost -p 5435 -d bi -u etl"
+alias pgu="pgcli -h localhost -p 5434 -d db -u aptible"
+alias pge="pgcli -h localhost -p 5433 -d db -u aptible"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 alias pgst="pg_ctl -D jojnts_development -l logfile start"
 
 alias aptible-eu="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy"
+alias aptible-eu-prod="aptible db:tunnel ja-pg12 --environment jointacademy"
 alias aptible-us="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy-us-west-1"
+alias aptible-us-prod="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
 alias aptible-eu2="aptible db:tunnel ja-pg12 --environment jointacademy 2>&1 >/dev/null | grep 'Connect at' | xargs sed -n -e 's/^Connect at //p'"
 
 alias hms="home-manager switch"
@@ -84,6 +90,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="$HOME/.rbenv/versions/2.6.1/bin:$PATH"
+export PATH=~/.local/bin:"$PATH"
 eval "$(rbenv init -)"
 
 
