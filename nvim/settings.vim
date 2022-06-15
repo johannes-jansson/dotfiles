@@ -2,8 +2,10 @@ set nocompatible
 
 set undolevels=1000
 set hidden
-set foldmethod=indent
 set foldlevel=999
+set foldmethod=expr
+" set foldmethod=indent
+set foldexpr=nvim_treesitter#foldexpr()
 set mouse=a
 set directory^=$HOME/.config/nvim/swap//
 set undofile

@@ -24,16 +24,21 @@
     # pkgs.httpie
     pkgs.jq
     pkgs.kubectl
+    pkgs.kubectx
     pkgs.k9s
     pkgs.languagetool
     pkgs.mdcat
     pkgs.moreutils
     pkgs.mosh
+    pkgs.ngrok
     pkgs.neofetch
     pkgs.heroku
     pkgs.nodePackages.prettier
     pkgs.openvpn
     pkgs.pandoc
+    pkgs.python39Packages.flake8
+    pkgs.rnix-lsp
+    pkgs.black
     pkgs.ranger
     pkgs.ripgrep
     pkgs.ripgrep-all
@@ -42,9 +47,12 @@
     pkgs.tealdeer
     pkgs.tig
     pkgs.wget
+    pkgs.sqls
+    pkgs.nodePackages.diagnostic-languageserver
     # pkgs.wireguard-tools
     pkgs.zsh
     pkgs.zsh-syntax-highlighting
+    pkgs.nodePackages.pyright
 
     # Posgres
     pkgs.pgcli
@@ -105,6 +113,7 @@
   # Dotfiles
   home.file.".zshrc".source = ~/dotfiles/zshrc;
   home.file.".gitconfig".source = ~/dotfiles/gitconfig;
+  home.file.".config/sqls/config.yml".source = ~/dotfiles/sqls.yml;
   home.file.".config/kitty/kitty.conf".source = ~/dotfiles/kitty.conf;
   home.file.".config/pgcli/config".source = ~/dotfiles/pgcli_conf;
   home.file.".config/nvim" = {
