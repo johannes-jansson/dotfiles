@@ -4,12 +4,16 @@
   home.packages = [
     pkgs.anki
     pkgs.awscli
+    pkgs.baobab # Disk usage analyzer
     pkgs.chromium
+    pkgs.discord
+    pkgs.feh
     pkgs.firefox
     pkgs.gparted
     pkgs.insomnia
     pkgs.kitty
     pkgs.pg_top
+    pkgs.qmk
     pkgs.spectacle
     pkgs.texlive.combined.scheme-medium
     pkgs.unzip
@@ -23,6 +27,12 @@
 
     # for generating gem nix
     pkgs.bundix
+
+    # Photo stuff
+    pkgs.exiftool
+    pkgs.darktable
+    pkgs.shotwell
+    pkgs.rapid-photo-downloader
   ];
 
   home.file.".config/i3/config".source = ~/dotfiles/i3;
