@@ -22,6 +22,7 @@ alias vim=nvim
 alias naked='nvim -u ~/dotfiles/nvim/essential.vim'
 alias notes="nvim $NOTESDIR/$(date +'%Y-%m-%d').md --cmd 'cd %:p:h'"
 alias pedit="pbpaste | vipe | pbcopy"
+alias fu="vim . '+:G'"
 
 alias srestart="brew services restart skhd"
 alias yrestart="launchctl kickstart -k 'gui/${UID}/homebrew.mxcl.yabai'"
@@ -31,6 +32,7 @@ alias pgu="pgcli -h localhost -p 5434 -d db -u aptible"
 alias pge="pgcli -h localhost -p 5433 -d db -u aptible"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 alias pgst="pg_ctl -D jojnts_development -l logfile start"
+alias wttr="curl wttr.in/hässleholm"
 
 alias aptible-eu="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy"
 alias aptible-eu-prod="aptible db:tunnel ja-pg12 --environment jointacademy"

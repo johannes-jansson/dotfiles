@@ -59,7 +59,7 @@
 	rebase = true
 
 [gpg]
-	program = ~/.nix-profile/bin/gpg
+	program = /Users/johannes/.nix-profile/bin/gpg
 
 [commit]
 	gpgsign = true

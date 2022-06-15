@@ -13,6 +13,21 @@
 #     style: Semibold Italic
 #   size: 9
 
+font:
+  normal:
+    family: FiraCode
+    style: Regular
+  bold:
+    family: FiraCode
+    style: Bold
+  italic:
+    family: FiraCode
+    style: Italic
+  bold_italic:
+    family: FiraCode
+    style: Bold Italic
+  size: 11
+
 bell:
   duration: 50
   color: '#ffffff'
