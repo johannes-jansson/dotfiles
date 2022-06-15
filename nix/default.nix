@@ -40,6 +40,7 @@
     pkgs.rnix-lsp
     pkgs.black
     pkgs.ranger
+    pkgs.rclone
     pkgs.ripgrep
     pkgs.ripgrep-all
     pkgs.rsync
@@ -83,10 +84,13 @@
     pkgs.imagemagick
     pkgs.nodejs
     pkgs.languagetool
+
+    # Elm
     pkgs.elmPackages.elm-language-server
     pkgs.elmPackages.elm
     pkgs.elmPackages.elm-test
     pkgs.elmPackages.elm-format
+    # pkgs.haskellPackages.elm-repl
   ];
 
   programs.neovim = {
