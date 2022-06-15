@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# For each machine, copy this file to home.nix and use relevant imports
 
 {
   programs.home-manager.enable = true;
@@ -6,6 +7,5 @@
 
   imports = [
     ./nix/default.nix
-    ./nix/linux.nix
   ];
 }

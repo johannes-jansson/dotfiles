@@ -1,3 +1,4 @@
+home.nix
 nixos/result
 nvim/plugged
 *.DS_Store
