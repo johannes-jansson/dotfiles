@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  # imports =
+  #   [
+  #   ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -95,10 +94,6 @@
     # Enable touchpad support.
     libinput.enable = true;
 
-    # Enable the KDE Desktop Environment.
-    # displayManager.sddm.enable = true;
-    # desktopManager.plasma5.enable = true;
-
     # Enable the Xfce Desktop Environment.
     desktopManager = {
       # default = "xfce";
@@ -117,8 +112,9 @@
   # Enable Docker.
   virtualisation.docker.enable = true;
 
-  # Enable dropbox
+  # Allow unfree software, used for dropbox
   nixpkgs.config.allowUnfree = true;
+
   systemd.user.services.dropbox = {
     description = "Dropbox";
     wantedBy = [ "graphical-session.target" ];
@@ -144,13 +140,10 @@
     extraGroups = [ "wheel" "docker"];
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.03"; # Did you read the comment?
-
+  fileSystems."/home/johannes/storage" =
+    { device = "/dev/disk/by-uuid/e1181b4e-e3b0-40a2-a5b3-db5554e1b62d";
+      fsType = "ext4";
+      options = [ "defaults" "user" "rw" "utf8" "noauto" "umask=000" ];
+    };
 }
 
