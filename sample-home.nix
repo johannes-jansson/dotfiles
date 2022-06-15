@@ -4,6 +4,7 @@
 {
   programs.home-manager.enable = true;
   home.stateVersion = "20.03";
+  nixpkgs.config.allowUnfree = true;
 
   imports = [
     ./nix/default.nix
