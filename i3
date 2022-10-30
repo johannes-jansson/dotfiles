@@ -15,7 +15,7 @@ default_border pixel
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -43,11 +43,11 @@ bindsym $mod+Shift+w exec $i3lockwall
 #systemctl poweroff
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -184,10 +184,10 @@ bindsym $mod+BackSpace mode "$mode_system"
 # finds out, if available)
 bar {
         status_command i3status
-        position top
-        mode hide
-        hidden_state hide
-        modifier $mod
+        position bottom
+        # mode hide
+        # hidden_state hide
+        # modifier $mod
 }
 
 exec /home/johannes/.xinitrc
