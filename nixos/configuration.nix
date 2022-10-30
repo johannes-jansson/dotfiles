@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # imports =
-  #   [
-  #   ];
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -70,10 +66,10 @@
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
-    extraConfig = "
-      load-module module-switch-on-connect
-    ";
+    # extraModules = [ pkgs.pulseaudio-modules-bt ];
+    # extraConfig = "
+    #   load-module module-switch-on-connect
+    # ";
   };
 
   # Enable bluetooth.

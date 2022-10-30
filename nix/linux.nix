@@ -2,31 +2,28 @@
 
 {
   home.packages = [
-    pkgs.anki
     pkgs.awscli
     pkgs.baobab # Disk usage analyzer
     pkgs.chromium
     pkgs.discord
     pkgs.feh
     pkgs.firefox
+    pkgs.gcc # Needed for neovim, for some reason
     pkgs.gparted
     pkgs.insomnia
     pkgs.kitty
+    pkgs.nitrogen
+    pkgs.nmap
     pkgs.pg_top
     pkgs.qmk
     pkgs.spectacle
+    pkgs.st
     pkgs.texlive.combined.scheme-medium
     pkgs.unzip
     pkgs.vlc
     pkgs.xorg.xev
     pkgs.xorg.xmodmap
     pkgs.zip
-
-    pkgs.thc-hydra
-    pkgs.nmap
-
-    # for generating gem nix
-    pkgs.bundix
 
     # Photo stuff
     pkgs.exiftool

@@ -11,8 +11,6 @@
     pkgs.circleci-cli
     pkgs.ctop
     pkgs.curl
-    # pkgs.docker
-    # pkgs.docker-compose
     pkgs.fzf
     pkgs.redoc-cli
     pkgs.git
@@ -32,7 +30,6 @@
     pkgs.mosh
     pkgs.ngrok
     pkgs.neofetch
-    pkgs.heroku
     pkgs.nodePackages.prettier
     pkgs.openvpn
     pkgs.pandoc
