@@ -58,9 +58,6 @@
   default = current
 	rebase = true
 
-[gpg]
-	program = /Users/johannes/.nix-profile/bin/gpg
-
 [commit]
 	gpgsign = true
 
