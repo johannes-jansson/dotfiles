@@ -11,6 +11,8 @@
     pkgs.circleci-cli
     pkgs.ctop
     pkgs.curl
+    pkgs.csvkit
+    pkgs.direnv
     pkgs.fzf
     pkgs.redoc-cli
     pkgs.git
@@ -18,6 +20,7 @@
     pkgs.gitAndTools.bfg-repo-cleaner
     pkgs.gitAndTools.gh
     pkgs.gnupg
+    pkgs.graphviz
     pkgs.htop
     # pkgs.httpie
     pkgs.jq
@@ -34,6 +37,7 @@
     pkgs.openvpn
     pkgs.pandoc
     pkgs.python39Packages.flake8
+    pkgs.plantuml
     pkgs.rnix-lsp
     pkgs.black
     pkgs.ranger
@@ -110,6 +114,10 @@
       pynvim
     ]);
   };
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+  # programs.zsh.enable = true;
 
   # Dotfiles
   home.file.".zshrc".source = ~/dotfiles/zshrc;

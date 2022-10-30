@@ -116,6 +116,9 @@ export PERL5LIB="/Users/johannes/.cpan/build/TAP-Parser-SourceHandler-pgTAP-3.35
 if [ -e /Users/johannes/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/johannes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
+# Direnv
+eval "$(direnv hook zsh)"
+
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # zprof
 # 1.3
