@@ -2,8 +2,6 @@
 
 # Path:
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/Users/johannes/.pyenv/bin:$PATH"
-export PATH="/opt/metasploit-framework/bin/:$PATH"
 export GPG_TTY=`tty`
 
 
@@ -33,14 +31,8 @@ alias pge="pgcli -h localhost -p 5433 -d db -u aptible"
 alias dost="sudo /home/johannes/.nix-profile/bin/dockerd"
 alias pgst="pg_ctl -D jojnts_development -l logfile start"
 alias wttr="curl wttr.in/hässleholm"
-
-alias aptible-eu="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy"
-alias aptible-eu-prod="aptible db:tunnel ja-pg12 --environment jointacademy"
-alias aptible-us="aptible db:tunnel ja-pg12-replica-intelligence --environment jointacademy-us-west-1"
-alias aptible-us-prod="aptible db:tunnel ja-pg12 --environment jointacademy-us-west-1"
-alias aptible-eu2="aptible db:tunnel ja-pg12 --environment jointacademy 2>&1 >/dev/null | grep 'Connect at' | xargs sed -n -e 's/^Connect at //p'"
-
 alias hms="home-manager switch"
+
 alias tls="tmux list-sessions"
 alias ta="tmux attach -t"
 alias ts="tmux switch -t"
@@ -73,6 +65,7 @@ zstyle ':vcs_info:git:*' formats '(%b)'
 PROMPT=$'\n''    %F{031}${PWD/#$HOME/~}%f'$'\n''    %F{111}>%f '
 RPROMPT='${vcs_info_msg_0_} [%D{%L:%M}]'
 
+# Autoload tmux session
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
     tmux attach -t default || tmux new -s default
 fi
@@ -83,36 +76,7 @@ if [ -n "${commands[fzf-share]}" ]; then source "$(fzf-share)/key-bindings.zsh"
 fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-
-# Ruby
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-export LDFLAGS="-L/usr/local/opt/readline/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="$HOME/.rbenv/versions/2.6.1/bin:$PATH"
-export PATH=~/.local/bin:"$PATH"
-eval "$(rbenv init -)"
-
-
-# Python
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-
-# Perl
-export PERL5LIB="/usr/local/Cellar/perl/5.30.1/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL_LOCAL_LIB_ROOT="/usr/local/Cellar/perl/5.30.1/${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}";
-export PERL_MB_OPT="--install_base \"/usr/local/Cellar/perl/5.30.1\"";
-export PERL_MM_OPT="INSTALL_BASE=/usr/local/Cellar/perl/5.30.1"
-export PERL5LIB="/Users/johannes/.cpan/build/TAP-Parser-SourceHandler-pgTAP-3.35-0/lib/:$PERL5LIB"
-
-
-# Nix
+# Nix on macOS
 if [ -e /Users/johannes/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/johannes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
