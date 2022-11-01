@@ -15,6 +15,7 @@ general {
 # order += "wireless _first_"
 # order += "ethernet _first_"
 order += "disk /"
+order += "battery 0"
 order += "load"
 order += "memory"
 order += "tztime local"
@@ -45,4 +46,16 @@ memory {
 
 tztime local {
         format = "%Y-%m-%d %H:%M:%S"
+}
+
+battery 0 {
+	last_full_capacity = true
+        format = "%status %percentage"
+        format_down = "No Battery"
+        status_chr = "Charging"
+        status_bat = "Battery"
+        status_unk = "Unknown"
+        status_full = "Charged"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
 }
