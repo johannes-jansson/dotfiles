@@ -2,34 +2,40 @@
 
 {
   home.packages = [
-    pkgs.awscli
+    # GUIs
     pkgs.baobab # Disk usage analyzer
     pkgs.chromium
     pkgs.discord
-    pkgs.feh
     pkgs.firefox
-    pkgs.gcc # Needed for neovim, for some reason
     pkgs.gparted
     pkgs.insomnia
-    pkgs.kitty
+    pkgs.slack
+    pkgs.spotify
+    pkgs.vlc
+
+    # Linux stuff
+    pkgs.feh
     pkgs.nitrogen
+    pkgs.xorg.xev
+    pkgs.xorg.xmodmap
+
+    # CLI tools
+    pkgs.awscli
+    pkgs.gcc # Needed for neovim, for some reason
     pkgs.nmap
     pkgs.pg_top
+    pkgs.python3
     pkgs.qmk
-    pkgs.spectacle
     pkgs.st
     pkgs.texlive.combined.scheme-medium
     pkgs.unzip
-    pkgs.vlc
-    pkgs.xorg.xev
-    pkgs.xorg.xmodmap
     pkgs.zip
 
     # Photo stuff
-    pkgs.exiftool
     pkgs.darktable
-    pkgs.shotwell
+    pkgs.exiftool
     pkgs.rapid-photo-downloader
+    pkgs.shotwell
   ];
 
   home.file.".config/i3/config".source = ~/dotfiles/i3;
