@@ -87,16 +87,16 @@ nvim_lsp.rnix.setup{}
 nvim_lsp.sqls.setup {
   on_attach=on_attach,
   capabilities=capabilities,
-  settings = {
-    sqls = {
-      connections = {
-        {
-          driver = 'postgresql',
-          dataSourceName = 'host=127.0.0.1 port=5435 user=etl password=password dbname=bi sslmode=disable',
-        },
-      },
-    },
-  },
+  -- settings = {
+  --   sqls = {
+  --     connections = {
+  --       {
+  --         driver = 'postgresql',
+  --         dataSourceName = 'host=127.0.0.1 port=5435 user=etl password=password dbname=bi sslmode=disable',
+  --       },
+  --     },
+  --   },
+  -- },
 }
 
 nvim_lsp.diagnosticls.setup {
