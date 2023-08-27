@@ -4,7 +4,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hasklig Light 8
+# font pango:Hasklig Light 8
 
 # Eliminate title bars
 default_border pixel
@@ -38,7 +38,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # lock screen
-set $i3lockwall i3lock -i /home/johannes/Pictures/Backgrounds/carro.png -t
+set $i3lockwall i3lock -c 000000 -t
 bindsym $mod+Shift+w exec $i3lockwall
 #systemctl poweroff
 
@@ -183,8 +183,9 @@ bindsym $mod+BackSpace mode "$mode_system"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command i3status-rs /home/johannes/.config/i3status-rust/config-bottom.toml
         position bottom
+        font pango:Hasklig Light 24
         # mode hide
         # hidden_state hide
         # modifier $mod
