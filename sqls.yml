@@ -1,9 +1,0 @@
-lowercaseKeywords: true
-connections:
-  - alias: bi
-    driver: postgres
-    user: etl
-    passwd: password
-    host: 127.0.0.1
-    port: 5435
-    dbName: bi

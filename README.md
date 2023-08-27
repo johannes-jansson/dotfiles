@@ -18,5 +18,3 @@ To apply changes, run `sudo nixos-rebuild switch`.
 - Git - dotfile linked by home-manager.
 - Kitty - dotfile linked by home-manager.
 - pgcli - dotfile linked by home-manager.
-
-## macOS WM: yabai + skhdrc

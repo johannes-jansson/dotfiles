@@ -9,3 +9,6 @@ multiline_continuation_char = ' '
 pager = pspg -XF -s s
 prompt = "\u@\h:\d>\n "
 vi = True
+
+[alias_dsn]
+bi = postgresql://dbt@ja-bi.cfpim9tf70uk.eu-north-1.rds.amazonaws.com:5432/analytics
