@@ -73,14 +73,14 @@
       bind-key -T copy-mode-vi 'C-\' select-pane -l
 
       # status bar stuff
-      setw -g window-status-fg 'colour32' # orange
-      setw -g window-status-bg 'colour235' # gray
+      # setw -g window-status-fg 'colour32' # orange
+      # setw -g window-status-bg 'colour235' # gray
       set -g status-fg 'colour248' # light gray
       set -g status-bg 'colour235'
-      setw -g window-status-activity-fg 'colour154' # green as fuck
-      setw -g window-status-activity-bg 'colour235'
+      # setw -g window-status-activity-fg 'colour154' # green as fuck
+      # setw -g window-status-activity-bg 'colour235'
       setw -g window-status-separator ""
-      setw -g window-status-bg 'colour235'
+      # setw -g window-status-bg 'colour235'
       setw -g window-status-format ' #I #W '
       setw -g window-status-current-format '#[fg=colour255,bg=colour32]  #I #W  #[fg=colour154,bg=colour235]'
       set -g status-right ""

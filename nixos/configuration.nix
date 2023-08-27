@@ -1,27 +1,53 @@
 { config, pkgs, ... }:
-
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec "$@"
+  '';
+in
 {
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    version = 2;
+    efiSupport = true;
+    enableCryptodisk = true;
+  };
+  
+  boot.initrd = {
+    luks.devices."root" = {
+      device = "/dev/disk/by-uuid/811adfaa-f163-40e4-83c4-c38034f4a00e"; # UUID for /dev/nvme01np2 
+      preLVM = true;
+      keyFile = "/keyfile0.bin";
+      allowDiscards = true;
+    };
+    secrets = {
+      # Create /mnt/etc/secrets/initrd directory and copy keys to it
+      "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin";
+    };
+  };
+  # Use latest kernel to avoid pulseaudio crashing
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "jixos";
+  networking.hostName = "jaxos";
   # networking.wireless.enable = true;      # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Enables wireless support via NetworkManager.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
-  networking.interfaces.enp61s0.useDHCP = true;
-  networking.interfaces.wlp62s0.useDHCP = true;
-  
-  # Allow dropbox
-  # networking.firewall = {
-  #   allowedTCPPorts = [ 17500 ];
-  #   allowedUDPPorts = [ 17500 ];
-  # };
+  networking.interfaces.wlp9s0.useDHCP = true;
 
   fonts = {
-    fonts = with pkgs; [ hasklig ];
+    fonts = with pkgs; [
+      # hasklig
+      (nerdfonts.override { fonts = [ "Hasklig" ]; })
+    ];
     fontconfig.defaultFonts.monospace = [ "Hasklig" ];
   };
 
@@ -34,7 +60,7 @@
 
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
-    bash wget vim home-manager git zsh dropbox-cli docker-compose pinentry
+    bash wget vim home-manager git zsh dropbox-cli docker-compose pinentry # nvidia-offload
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -58,34 +84,37 @@
   services.blueman.enable = true;
 
   # keyring
-  # warning: The option `services.gnome3.gnome-keyring.enable' defined in `/etc/nixos/configuration.nix' has been renamed to `services.gnome.gnome-keyring.enable'
   services.gnome.gnome-keyring.enable = true;
 
   # Enable sound.
   sound.enable = true;
+  nixpkgs.config.pulseaudio = true;
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-    # extraModules = [ pkgs.pulseaudio-modules-bt ];
-    # extraConfig = "
-    #   load-module module-switch-on-connect
-    # ";
   };
+  hardware.enableAllFirmware = true;
 
   # Enable bluetooth.
   hardware.bluetooth = {
     enable = true;
-    # extraConfig = "
-    #   [General]
-    #   Enable=Source,Sink,Media,Socket
-    # ";
   };
 
   # Enable the X11 windowing system.
+  hardware.video.hidpi.enable = true;
   services.xserver = {
     enable = true;
     layout = "se(mac)";
     xkbOptions = "eurosign:e,caps:escape";
+    dpi = 240;
+    /* monitorSection = '' */
+    /*   DisplaySize 344 215 */
+    /* ''; */
+    # Identifier "eDP-1"
+    # Identifier "DP-1"
+    # DisplaySize 609 432
+
+    videoDrivers = [ "nvidia" ];
 
     # Enable touchpad support.
     libinput.enable = true;
@@ -100,16 +129,67 @@
         enableXfwm = false;
       };
     };
-    windowManager.i3.enable = true;
-    displayManager.defaultSession = "xfce+i3";
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+    };
+    displayManager = {
+      defaultSession = "xfce+i3";
+      session = [
+        {
+          manage = "desktop";
+          name = "plasma5+i3";
+          start = ''exec env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+        }
+      ];
+      lightdm = { 
+        enable = true; 
+        # background = /home/johannes/.background-image;
+        # extraConfig = "background=/home/johannes/.background-image";
+      };
+    };
+    # displayManager = {
+    #   sddm.enable = true;
+    #   defaultSession = "plasma5+i3";
+    #   session = [
+    #     {
+    #       manage = "desktop";
+    #       name = "plasma5+i3";
+    #       start = ''exec env KDEWM=${pkgs.i3-gaps}/bin/i3 ${pkgs.plasma-workspace}/bin/startplasma-x11'';
+    #     }
+    #   ];
+    # };
+  };
+  environment.variables = {
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "0.5";
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
   # - You cannot use both services.xserver.displayManager.defaultSession option and legacy options (services.xserver.desktopManager.default and services.xserver.windowManager.default).
 
-  # Enable Docker.
-  virtualisation.docker.enable = true;
+  hardware.nvidia.powerManagement.enable = true;
+  hardware.nvidia.prime = {
+    offload.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
+
+  # Toggle experimental features on
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+      '';
+  };
+
+  hardware.keyboard.qmk.enable = true;
 
   # Allow unfree software, used for dropbox
   nixpkgs.config.allowUnfree = true;
+
+  # Enable Docker.
+  virtualisation.docker.enable = true;
+  # virtualisation.docker.daemon.settings.log-driver = "json-file";
 
   systemd.user.services.dropbox = {
     description = "Dropbox";
@@ -129,6 +209,19 @@
     };
   };
 
+  # Allow flatpak :grimacing:
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+
+  # Power saving cli
+  services.tlp = {
+    enable = true;
+    settings = {
+      TLP_DEFAULT_MODE = "BAT";
+    };
+  };
+  #  services.power-profiles-daemon.enable = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
     isNormalUser = true;
@@ -136,10 +229,10 @@
     extraGroups = [ "wheel" "docker"];
   };
 
-  fileSystems."/home/johannes/storage" =
-    { device = "/dev/disk/by-uuid/e1181b4e-e3b0-40a2-a5b3-db5554e1b62d";
-      fsType = "ext4";
-      options = [ "defaults" "user" "rw" "utf8" "noauto" "umask=000" ];
-    };
+  # fileSystems."/home/johannes/storage" =
+  #   { device = "/dev/disk/by-uuid/e1181b4e-e3b0-40a2-a5b3-db5554e1b62d";
+  #     fsType = "ext4";
+  #     options = [ "defaults" "user" "rw" "utf8" "noauto" "umask=000" ];
+  #   };
 }
 

@@ -1,35 +1,44 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./i3status.nix
+    ./i3.nix
+  ];
   home.packages = [
+    pkgs.dfu-programmer
     # GUIs
-    pkgs.baobab # Disk usage analyzer
+    pkgs.alacritty
+    pkgs.anki
+    pkgs.calibre
     pkgs.chromium
     pkgs.discord
+    pkgs.emote
     pkgs.firefox
-    pkgs.gparted
+    pkgs.gnome.pomodoro
     pkgs.insomnia
+    pkgs.libreoffice
+    pkgs.pinta
+    pkgs.rpi-imager
+    pkgs.signal-desktop
     pkgs.slack
     pkgs.spotify
     pkgs.vlc
+    pkgs.vscode
 
-    # Linux stuff
+    # Linux specific stuff
+    pkgs.baobab # Disk usage analyzer
+    pkgs.brightnessctl
     pkgs.feh
-    pkgs.nitrogen
+    pkgs.gparted
+    pkgs.haskellPackages.greenclip
+    pkgs.hasklig
+    pkgs.lsof
+    pkgs.pciutils
+    pkgs.xclip
+    pkgs.xfce.tumbler
     pkgs.xorg.xev
     pkgs.xorg.xmodmap
-
-    # CLI tools
-    pkgs.awscli
-    pkgs.gcc # Needed for neovim, for some reason
-    pkgs.nmap
-    pkgs.pg_top
-    pkgs.python3
-    pkgs.qmk
-    pkgs.st
-    pkgs.texlive.combined.scheme-medium
-    pkgs.unzip
-    pkgs.zip
 
     # Photo stuff
     pkgs.darktable
@@ -38,7 +47,8 @@
     pkgs.shotwell
   ];
 
-  home.file.".config/i3/config".source = ~/dotfiles/i3;
-  home.file.".config/i3status/config".source = ~/dotfiles/i3status;
-  home.file.".xinitrc".source = ~/dotfiles/xinitrc;
+  home.file.".config/alacritty/alacritty.yml".source = ~/dotfiles/alacritty.yml;
+  # home.file.".config/i3/config".source = ~/dotfiles/i3;
+  # home.file.".config/i3status/config".source = ~/dotfiles/i3status;
+  # home.file.".xinitrc".source = ~/dotfiles/xinitrc;
 }
