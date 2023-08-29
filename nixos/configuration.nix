@@ -182,7 +182,7 @@ in
       '';
   };
 
-  hardware.keyboard.qmk.enable = true;
+  # hardware.keyboard.qmk.enable = true;
 
   # Allow unfree software, used for dropbox
   nixpkgs.config.allowUnfree = true;
