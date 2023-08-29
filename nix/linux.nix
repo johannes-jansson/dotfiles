@@ -25,6 +25,7 @@
     pkgs.spotify
     pkgs.vlc
     pkgs.vscode
+    pkgs.zathura
 
     # Linux specific stuff
     pkgs.baobab # Disk usage analyzer
