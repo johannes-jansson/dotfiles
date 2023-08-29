@@ -1,0 +1,6 @@
+vim.cmd [[source ~/dotfiles/nvim/essential.vim]]
+vim.cmd [[source ~/dotfiles/nvim/settings.vim]]
+vim.cmd [[source ~/dotfiles/nvim/plugins.vim]]
+vim.cmd [[source ~/dotfiles/nvim/mappings.vim]]
+vim.cmd [[source ~/dotfiles/nvim/notes.vim]]
+vim.cmd [[source ~/dotfiles/nvim/lsp.lua]]
