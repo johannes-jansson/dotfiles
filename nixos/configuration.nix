@@ -232,6 +232,14 @@ in
   };
   #  services.power-profiles-daemon.enable = false;
 
+  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${pkgs.writeText  "xkb-layout" ''
+    keycode 66 = Mode_switch
+    keysym h = h H Left
+    keysym l = l L Right
+    keysym k = k K Up
+    keysym j = j J Down
+  ''}";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johannes = {
     isNormalUser = true;
