@@ -7,6 +7,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'prettier/vim-prettier'
+Plug 'andrewradev/linediff.vim'
 
 " TS/LS stuff
 Plug 'hrsh7th/cmp-buffer'
