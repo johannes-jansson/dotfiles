@@ -200,6 +200,9 @@ in
   # Enable Docker.
   virtualisation.docker.enable = true;
   # virtualisation.docker.daemon.settings.log-driver = "json-file";
+  systemd.user.extraConfig = ''
+    DefaultEnvironment="PATH=/run/current-system/sw/bin"
+  '';
 
   systemd.user.services.dropbox = {
     description = "Dropbox";
