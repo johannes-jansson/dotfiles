@@ -61,3 +61,13 @@ augroup vimrcEx
     \   exe "normal! g`\"" |
     \ endif
 augroup END
+
+
+autocmd BufEnter *.notest_sql :setlocal filetype=sql
+
+" if exists("did_load_filetypes")
+"     finish
+" endif
+" augroup filetypedetect
+"     au! BufRead,BufNewFile *.notest_sql       setfiletype sql
+" augroup END
