@@ -15,7 +15,6 @@ in
   boot.loader.grub = {
     enable = true;
     device = "nodev";
-    version = 2;
     efiSupport = true;
     enableCryptodisk = true;
   };
@@ -101,7 +100,7 @@ in
   };
 
   # Enable the X11 windowing system.
-  hardware.video.hidpi.enable = true;
+  /* hardware.video.hidpi.enable = true; */
   services.xserver = {
     enable = true;
     layout = "se(mac)";

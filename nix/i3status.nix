@@ -9,9 +9,7 @@
         {
           block = "disk_space";
           path = "/";
-          alias = "/";
           info_type = "available";
-          unit = "GB";
           interval = 60;
           warning = 20.0;
           alert = 10.0;
@@ -24,9 +22,8 @@
         }
         {
           block = "memory";
-          display_type = "memory";
-          format_mem = "{mem_used_percents}";
-          format_swap = "{swap_used_percents}";
+          format = " $icon $mem_total_used_percents.eng(w:2) ";
+          format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
         }
         {
           block = "cpu";
@@ -36,12 +33,12 @@
         {
           block = "time";
           interval = 60;
-          format = "%a %d/%m %R";
+          format = " $timestamp.datetime(f:'%a %d/%m %R') ";
         }
         ];
         settings = {
           theme =  {
-            name = "modern";
+            theme = "modern";
           };
         };
         icons = "awesome5";

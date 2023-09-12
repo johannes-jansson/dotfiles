@@ -19,6 +19,7 @@ bell:
 
 window:
   decorations: none
+  option_as_alt: Both
 
 key_bindings:
   # Swedish (sv_SE) https://github.com/jwilm/alacritty/wiki/Keyboard-mappings#swedish-sv_se
@@ -44,7 +45,7 @@ key_bindings:
   - { key: Key9,      mods: Alt|Shift,    chars: "\x7D"                  }
   - { key: Key0,      mods: Alt|Shift,    chars: "≠"                     }
   - { key: Minus,     mods: Alt|Shift,    chars: "\xBF"                  }
-alt_send_esc: false
+# alt_send_esc: false
 
   # color_schemes:
   #   # Pencil Dark
