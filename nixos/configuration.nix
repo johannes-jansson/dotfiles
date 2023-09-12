@@ -60,7 +60,7 @@ in
 
   # Packages installed in system profile
   environment.systemPackages = with pkgs; [
-    bash wget vim home-manager git zsh dropbox-cli docker-compose pinentry # nvidia-offload
+    bash wget vim home-manager git zsh dropbox-cli docker-compose pinentry cachix # nvidia-offload
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -180,6 +180,16 @@ in
     extraOptions = ''
       experimental-features = nix-command flakes
       '';
+  };
+  nix = {
+    settings = {
+      substituters = [
+        "https://devenv.cachix.org"
+      ];
+      trusted-public-keys = [
+        "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+      ];
+    };
   };
 
   # hardware.keyboard.qmk.enable = true;
