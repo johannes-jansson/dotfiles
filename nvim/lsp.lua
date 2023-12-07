@@ -75,7 +75,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
-  require('sqls').on_attach(client, bufnr)
+  -- require('sqls').on_attach(client, bufnr)
 end
 
 nvim_lsp.pyright.setup {
@@ -84,20 +84,20 @@ nvim_lsp.pyright.setup {
 }
 nvim_lsp.rnix.setup{}
 
-nvim_lsp.sqls.setup {
-  on_attach=on_attach,
-  capabilities=capabilities,
-  -- settings = {
-  --   sqls = {
-  --     connections = {
-  --       {
-  --         driver = 'postgresql',
-  --         dataSourceName = 'host=127.0.0.1 port=5435 user=etl password=password dbname=bi sslmode=disable',
-  --       },
-  --     },
-  --   },
-  -- },
-}
+-- nvim_lsp.sqls.setup {
+--   on_attach=on_attach,
+--   capabilities=capabilities,
+--   -- settings = {
+--   --   sqls = {
+--   --     connections = {
+--   --       {
+--   --         driver = 'postgresql',
+--   --         dataSourceName = 'host=127.0.0.1 port=5435 user=etl password=password dbname=bi sslmode=disable',
+--   --       },
+--   --     },
+--   --   },
+--   -- },
+-- }
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
@@ -213,3 +213,13 @@ require'nvim-treesitter.configs'.setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
   }
 }
+
+local diagnostics_active = true
+vim.keymap.set('n', '<leader>d', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end)
