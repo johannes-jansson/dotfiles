@@ -80,6 +80,8 @@ export FZF_DEFAULT_COMMAND="rg --files --no-ignore --hidden --follow --glob '!.g
 if [ -e /Users/johannes/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/johannes/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # Direnv
 eval "$(direnv hook zsh)"
 
