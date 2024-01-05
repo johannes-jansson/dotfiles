@@ -10,7 +10,7 @@
     pkgs.watch
     # pkgs.nerdfonts
     # CLI tools
-    pkgs.awscli
+    pkgs.awscli2
     pkgs.gcc # Needed for neovim, for some reason
     pkgs.nmap
     pkgs.httpie
