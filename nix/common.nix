@@ -3,6 +3,7 @@
 {
   imports = [
     ./tmux.nix
+    ./zsh.nix
   ];
 
   home.packages = [

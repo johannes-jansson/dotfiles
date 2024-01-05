@@ -5,11 +5,11 @@
     defaultKeymap = "viins";
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     history = {
       save = 10000;
       size = 10000;
     };
+    syntaxHighlighting.enable = true;
 
     sessionVariables = {
       EDITOR = "${pkgs.neovim}/bin/nvim";
@@ -53,6 +53,9 @@
           tmux attach -t default || tmux new -s default
       fi
       eval $(thefuck --alias)
+      if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+        . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+      fi
     '';
 
     profileExtra = ''
