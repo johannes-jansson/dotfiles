@@ -11,15 +11,15 @@
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
-      {
-        plugin = pkgs.tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-boot 'on'
-          set -g @continuum-boot-options 'iterm'
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '10'
-        '';
-      }
+      # {
+      #   plugin = pkgs.tmuxPlugins.continuum;
+      #   extraConfig = ''
+      #     set -g @continuum-boot 'on'
+      #     set -g @continuum-boot-options 'iterm'
+      #     set -g @continuum-restore 'on'
+      #     set -g @continuum-save-interval '10'
+      #   '';
+      # }
     ];
     extraConfig = ''
       unbind C-b
