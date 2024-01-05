@@ -13,6 +13,7 @@
     pkgs.awscli2
     pkgs.gcc # Needed for neovim, for some reason
     pkgs.nmap
+    pkgs.htop
     pkgs.httpie
     pkgs.pg_top
     pkgs.pgtop
@@ -31,6 +32,7 @@
     pkgs.csvkit
     pkgs.ctop
     pkgs.curl
+    pkgs.dig
     pkgs.gnupg
     pkgs.gotop
     pkgs.graphviz
@@ -39,6 +41,7 @@
     pkgs.kubectl
     pkgs.kubectx
     pkgs.mdcat
+    pkgs.minikube
     pkgs.moreutils
     pkgs.mosh
     pkgs.neofetch
@@ -46,6 +49,7 @@
     pkgs.nodePackages.diagnostic-languageserver
     pkgs.nodePackages.prettier
     pkgs.nodePackages.pyright
+    pkgs.openssl
     pkgs.openvpn
     pkgs.pandoc
     pkgs.plantuml
