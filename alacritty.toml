@@ -1,0 +1,27 @@
+[font]
+size = 14
+
+  [font.normal]
+  family = "Hasklig"
+  style = "Light"
+
+  [font.bold]
+  family = "Hasklig"
+  style = "Semibold"
+
+  [font.italic]
+  family = "Hasklig"
+  style = "Light Italic"
+
+  [font.bold_italic]
+  family = "Hasklig"
+  style = "Semibold Italic"
+
+[bell]
+duration = 50
+color = "#ffffff"
+
+[window]
+decorations = "buttonless"
+# option_as_alt = "Both"
+# alt_send_esc = "None"

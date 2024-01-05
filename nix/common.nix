@@ -3,6 +3,7 @@
 {
   imports = [
     ./tmux.nix
+    ./zsh.nix
   ];
 
   home.packages = [
@@ -12,10 +13,11 @@
     # CLI tools
     pkgs.awscli2
     pkgs.gcc # Needed for neovim, for some reason
+    pkgs.hasklig
     pkgs.nmap
     pkgs.htop
     pkgs.httpie
-    pkgs.pg_top
+    # pkgs.pg_top
     pkgs.pgtop
     pkgs.python38Full
     pkgs.python38Packages.tkinter
@@ -135,20 +137,20 @@
       }];
     };
   };
-  programs.rofi = {
-    enable = true;
-    /* font = "Hasklig"; */
-  };
+  # programs.rofi = {
+  #   enable = true;
+  #   /* font = "Hasklig"; */
+  # };
 
-  services.redshift = {
-    enable = true;
-    longitude = "55.3621";
-    latitude = "13.02";
-  };
+  # services.redshift = {
+  #   enable = true;
+  #   longitude = "55.3621";
+  #   latitude = "13.02";
+  # };
 
   # Dotfiles
   # home.file.".gitconfig".source = ~/dotfiles/gitconfig;
-  home.file.".config/pgcli/config".source = ~/dotfiles/pgcli_conf;
+  home.file.".config/alacritty/alacritty.toml".source = ~/dotfiles/alacritty.toml;
   home.file.".config/nvim" = {
     source = ~/dotfiles/nvim;
     recursive = true;
