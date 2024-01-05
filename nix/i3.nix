@@ -10,6 +10,7 @@
       bars = [{
         statusCommand = "i3status-rs /home/johannes/.config/i3status-rust/config-bottom.toml";
         position = "bottom";
+        trayOutput = "primary";
         /* mode = "hide"; */
         /* modifier = "Mod1"; */
         fonts = {
@@ -90,7 +91,7 @@
 
       startup = [
         { command = "exec i3-msg workspace 1"; }
-        { command = "exec --no-startup-id nm-applet"; }
+        { command = "exec --no-startup-id nm-applet --sm-disable"; }
         { command = "greenclip daemon"; }
         { command = "xrandr --setprovideroutputsource NVIDIA-G0 modesetting"; }
         { command = "setxkbmap"; }
