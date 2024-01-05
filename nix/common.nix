@@ -13,9 +13,10 @@
     # CLI tools
     pkgs.awscli
     pkgs.gcc # Needed for neovim, for some reason
+    pkgs.hasklig
     pkgs.nmap
     pkgs.httpie
-    pkgs.pg_top
+    # pkgs.pg_top
     pkgs.pgtop
     pkgs.python38Full
     pkgs.python38Packages.tkinter
@@ -132,16 +133,16 @@
       }];
     };
   };
-  programs.rofi = {
-    enable = true;
-    /* font = "Hasklig"; */
-  };
+  # programs.rofi = {
+  #   enable = true;
+  #   /* font = "Hasklig"; */
+  # };
 
-  services.redshift = {
-    enable = true;
-    longitude = "55.3621";
-    latitude = "13.02";
-  };
+  # services.redshift = {
+  #   enable = true;
+  #   longitude = "55.3621";
+  #   latitude = "13.02";
+  # };
 
   # Dotfiles
   # home.file.".gitconfig".source = ~/dotfiles/gitconfig;
