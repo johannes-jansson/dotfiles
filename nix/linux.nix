@@ -17,6 +17,7 @@
     pkgs.firefox
     pkgs.gnome.pomodoro
     pkgs.insomnia
+    pkgs.kazam
     pkgs.libreoffice
     pkgs.pinta
     pkgs.rpi-imager
