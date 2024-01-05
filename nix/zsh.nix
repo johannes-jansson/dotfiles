@@ -9,7 +9,7 @@
       save = 10000;
       size = 10000;
     };
-    syntaxHighlighting.enable = true;
+    # syntaxHighlighting.enable = true;
 
     sessionVariables = {
       EDITOR = "${pkgs.neovim}/bin/nvim";
