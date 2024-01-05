@@ -144,7 +144,7 @@
 
   # Dotfiles
   # home.file.".gitconfig".source = ~/dotfiles/gitconfig;
-  home.file.".config/pgcli/config".source = ~/dotfiles/pgcli_conf;
+  home.file.".config/alacritty/alacritty.toml".source = ~/dotfiles/alacritty.toml;
   home.file.".config/nvim" = {
     source = ~/dotfiles/nvim;
     recursive = true;
