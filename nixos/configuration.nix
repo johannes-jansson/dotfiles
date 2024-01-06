@@ -102,12 +102,12 @@ in
   };
 
   # Enable the X11 windowing system.
-  /* hardware.video.hidpi.enable = true; */
+  # hardware.video.hidpi.enable = true;
   services.xserver = {
     enable = true;
     layout = "se(mac)";
     xkbOptions = "eurosign:e,caps:escape";
-    /* dpi = 240; */
+    dpi = 140; # 240
     /* monitorSection = '' */
     /*   DisplaySize 344 215 */
     /* ''; */
@@ -145,8 +145,8 @@ in
       ];
       lightdm = { 
         enable = true; 
-        # background = /home/johannes/.background-image;
-        # extraConfig = "background=/home/johannes/.background-image";
+        background = /home/johannes/.background-image;
+        extraConfig = "background=/home/johannes/.background-image";
       };
     };
     # displayManager = {
@@ -162,9 +162,9 @@ in
     # };
   };
   environment.variables = {
-    GDK_SCALE = "2";
-    GDK_DPI_SCALE = "0.5";
-    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
+    GDK_SCALE = "1"; # 2
+    GDK_DPI_SCALE = "1"; # 0.5 # text scaling
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=1"; # 2
   };
   # - You cannot use both services.xserver.displayManager.defaultSession option and legacy options (services.xserver.desktopManager.default and services.xserver.windowManager.default).
 
