@@ -1,5 +1,5 @@
 [font]
-size = 14
+size = 12
 
   [font.normal]
   family = "Hasklig"
@@ -23,5 +23,3 @@ color = "#ffffff"
 
 [window]
 decorations = "buttonless"
-# option_as_alt = "Both"
-# alt_send_esc = "None"

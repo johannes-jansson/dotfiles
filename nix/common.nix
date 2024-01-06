@@ -150,7 +150,6 @@
 
   # Dotfiles
   # home.file.".gitconfig".source = ~/dotfiles/gitconfig;
-  home.file.".config/alacritty/alacritty.toml".source = ~/dotfiles/alacritty.toml;
   home.file.".config/nvim" = {
     source = ~/dotfiles/nvim;
     recursive = true;
