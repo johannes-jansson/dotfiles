@@ -19,14 +19,14 @@
         };
       }];
 
-      # window.border = 0;
+      window.border = 0;
 
-      /* gaps = { */
-      /*   inner = 15; */
-      /*   outer = 5; */
-      /*   smartGaps = true; */
-      /*   smartBorders = "on"; */
-      /* }; */
+      gaps = {
+        inner = 15;
+        outer = 5;
+        smartGaps = true;
+        smartBorders = "on";
+      };
 
       floating.modifier = "${modifier}";
 
@@ -95,7 +95,7 @@
         { command = "greenclip daemon"; }
         { command = "xrandr --setprovideroutputsource NVIDIA-G0 modesetting"; }
         { command = "setxkbmap"; }
-        { command = "${pkgs.feh}/bin/feh --bg-scale ~/.background-image"; }
+        { command = "${pkgs.feh}/bin/feh --bg-fill ~/.background-image"; }
       ];
       /* assigns = { */
       /*   "1" = [{ class = "^Alacritty$"; }]; */
