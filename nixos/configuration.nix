@@ -10,40 +10,42 @@ let
 in
 {
   # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-    enableCryptodisk = true;
-  };
+  /* boot.loader.efi.efiSysMountPoint = "/boot/efi"; */
+  /* boot.loader.grub = { */
+  /*   enable = true; */
+  /*   device = "nodev"; */
+  /*   efiSupport = true; */
+  /*   enableCryptodisk = true; */
+  /* }; */
   
-  boot.initrd = {
-    luks.devices."root" = {
-      device = "/dev/disk/by-uuid/811adfaa-f163-40e4-83c4-c38034f4a00e"; # UUID for /dev/nvme01np2 
-      preLVM = true;
-      keyFile = "/keyfile0.bin";
-      allowDiscards = true;
-    };
-    secrets = {
-      # Create /mnt/etc/secrets/initrd directory and copy keys to it
-      "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin";
-    };
-  };
+  /* boot.initrd = { */
+  /*   luks.devices."root" = { */
+  /*     device = "/dev/disk/by-uuid/811adfaa-f163-40e4-83c4-c38034f4a00e"; # UUID for /dev/nvme01np2 */ 
+  /*     preLVM = true; */
+  /*     keyFile = "/keyfile0.bin"; */
+  /*     allowDiscards = true; */
+  /*   }; */
+  /*   secrets = { */
+  /*     # Create /mnt/etc/secrets/initrd directory and copy keys to it */
+  /*     "keyfile0.bin" = "/etc/secrets/initrd/keyfile0.bin"; */
+  /*   }; */
+  /* }; */
   # Use latest kernel to avoid pulseaudio crashing
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "jaxos";
+  networking.hostName = "jixos";
   # networking.wireless.enable = true;      # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Enables wireless support via NetworkManager.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   networking.useDHCP = false;
-  networking.interfaces.wlp9s0.useDHCP = true;
+  networking.interfaces.enp61s0.useDHCP = true;
+  networking.interfaces.wlp62s0.useDHCP = true;
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # hasklig
       (nerdfonts.override { fonts = [ "Hasklig" ]; })
     ];
@@ -105,7 +107,7 @@ in
     enable = true;
     layout = "se(mac)";
     xkbOptions = "eurosign:e,caps:escape";
-    dpi = 240;
+    /* dpi = 240; */
     /* monitorSection = '' */
     /*   DisplaySize 344 215 */
     /* ''; */
@@ -249,10 +251,10 @@ in
     extraGroups = [ "wheel" "docker"];
   };
 
-  # fileSystems."/home/johannes/storage" =
-  #   { device = "/dev/disk/by-uuid/e1181b4e-e3b0-40a2-a5b3-db5554e1b62d";
-  #     fsType = "ext4";
-  #     options = [ "defaults" "user" "rw" "utf8" "noauto" "umask=000" ];
-  #   };
+  fileSystems."/home/johannes/storage" =
+    { device = "/dev/disk/by-uuid/e1181b4e-e3b0-40a2-a5b3-db5554e1b62d";
+      fsType = "ext4";
+      options = [ "defaults" "user" "rw" "utf8" "noauto" "umask=000" ];
+    };
 }
 
