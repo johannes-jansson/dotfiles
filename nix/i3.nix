@@ -21,12 +21,12 @@
 
       # window.border = 0;
 
-      gaps = {
-        inner = 15;
-        outer = 5;
-        smartGaps = true;
-        smartBorders = "on";
-      };
+      /* gaps = { */
+      /*   inner = 15; */
+      /*   outer = 5; */
+      /*   smartGaps = true; */
+      /*   smartBorders = "on"; */
+      /* }; */
 
       floating.modifier = "${modifier}";
 
