@@ -1,28 +1,34 @@
 call plug#begin()
 
+" Random plugins
 " Plug 'chrisbra/csv.vim'
+Plug 'andrewradev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
+" Plug 'nvim-lua/plenary.nvim'                     " LUA util functions, used in nvim-metals
 Plug 'prettier/vim-prettier'
-Plug 'andrewradev/linediff.vim'
 
 " TS/LS stuff
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/nvim-cmp'
 " Plug 'nanotee/sqls.nvim'
-Plug 'joe-re/sql-language-server'
+" Plug 'joe-re/sql-language-server'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Visual
+" Plug 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'p00f/nvim-ts-rainbow'
 Plug 'reedes/vim-colors-pencil'                    " Color scheme
 Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
 Plug 'vim-airline/vim-airline'                     " Simple feature rich statusbar

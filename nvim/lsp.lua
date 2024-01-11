@@ -1,225 +1,109 @@
--- nvim-cmp stuff
-local cmp = require'cmp'
+-- https://medium.com/@rishavinmngo/how-to-setup-lsp-in-neovim-1c3e5073bbd1
+-- Setup language servers.
+local lspconfig = require('lspconfig')
 
-cmp.setup({
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-  }, {
-    { name = 'buffer' },
-  })
-})
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local luasnip = require 'luasnip'
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline('/', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
+local servers = {
+    "lua_ls",
+    "tsserver"
+}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    -- on_attach = my_custom_on_attach,
+    capabilities = capabilities,
   }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-
--- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-
--- LSP stuff
-local nvim_lsp = require('lspconfig')
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
--- vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
-  -- require('sqls').on_attach(client, bufnr)
 end
 
-nvim_lsp.pyright.setup {
-  on_attach = on_attach,
-  capabilities=capabilities
-}
-nvim_lsp.rnix.setup{}
+local cmp = require 'cmp'
 
--- nvim_lsp.sqls.setup {
---   on_attach=on_attach,
---   capabilities=capabilities,
---   -- settings = {
---   --   sqls = {
---   --     connections = {
---   --       {
---   --         driver = 'postgresql',
---   --         dataSourceName = 'host=127.0.0.1 port=5435 user=etl password=password dbname=bi sslmode=disable',
---   --       },
---   --     },
---   --   },
---   -- },
--- }
+cmp.setup {
+    snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      sources = {
+        { name = 'nvim_lsp' },
+        {name = "buffer"},
+      },
 
-nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  capabilities=capabilities,
-  filetypes = {
-    'css',
-    'json',
-    'markdown',
-    'python',
-    'scss',
-    'sh',
-    'sql',
-  },
-  init_options = {
-    linters = {
-      -- shellcheck = {
-      --   sourceName = 'shellcheck',
-      --   command = 'shellcheck',
-      --   debounce = 100,
-      --   args = { '--format', 'json1', '-' },
-      --   parseJson = {
-      --     errorsRoot = 'comments',
-      --     sourceName = 'file',
-      --     line = 'line',
-      --     column = 'column',
-      --     endLine = 'endLine',
-      --     endColumn = 'endColumn',
-      --     security = 'level',
-      --     message = '[shellcheck] ${message} [SC${code}]',
-      --   },
-      --   securities = {
-      --     error = 'error',
-      --     warning = 'warning',
-      --     info = 'info',
-      --     style = 'hint',
-      --   },
-      -- },
-      flake8 = {
-        command = 'flake8',
-        sourceName = 'flake8',
-        args = { '--format=%(row)d,%(col)d,%(code).1s,%(code)s: %(text)s', '-' },
-        debounce = 100,
-        offsetLine = 0,
-        offsetColumn = 0,
-        formatLines = 1,
-        formatPattern = {
-          [[(\d+),(\d+),([A-Z]),(.*)(\r|\n)*$]],
-          { line = 1, column = 2, security = 3, message = { '[flake8] ', 4 } },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+        ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+        ['<C-j>'] = cmp.mapping.select_next_item(),
+        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
         },
-        securities = {
-          W = 'warning',
-          E = 'error',
-          F = 'error',
-          C = 'error',
-          N = 'error',
+      }),
+}
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp-attach-format', { clear = true }),
+  -- This is where we attach the autoformatting for reasonable clients
+  callback = function(args)
+    local client_id = args.data.client_id
+    local client = vim.lsp.get_client_by_id(client_id)
+    local bufnr = args.buf
+
+    if not client.server_capabilities.documentFormattingProvider then
+      return
+    end
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = get_augroup(client),
+      buffer = bufnr,
+      callback = function()
+        if not format_is_enabled then
+          return
+        end
+        vim.lsp.buf.format {
+          async = false,
+          filter = function(c)
+            return c.id == client.id
+          end,
         }
-      },
-    },
-    filetypes = {
-      sh = 'shellcheck',
-      python = 'flake8',
-    },
-    formatters = {
-      prettier = {
-        command = 'prettier',
-        args = { '--stdin', '--stdin-filepath', '%filename' }
-      },
-      pgformatter = {
-        command = 'pg_format',
-        args = {'--nogrouping', '--spaces', '2',  '--type-case', '1',  '--keyword-case', '1', '-' }
-      },
-      black = {
-        command = 'black',
-        args = { '--quiet', '-' }
-      }
-    },
-    formatFiletypes = {
-      css = 'prettier',
-      scss = 'prettier',
-      json = 'prettier',
-      markdown = 'prettier',
-      sql = 'pgformatter',
-      python = 'black',
-    }
-  }
-}
+      end,
+    })
+  end,
+})
 
 
--- Treesitter stuff
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-      "bash",
-      "dockerfile",
-      "go",
-      "html",
-      "javascript",
-      "json",
-      "json",
-      "lua",
-      "nix",
-      "python",
-      "regex",
-      "ruby",
-      "vim",
-      "yaml",
-    },
-  sync_install = false,
-  highlight = { enable = true, additional_vim_regex_highlighting = false },
-  indent = { enable = true },
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-  }
-}
+lspconfig.pyright.setup {}
+lspconfig.rnix.setup{}
+lspconfig.metals.setup{}
 
-local diagnostics_active = true
-vim.keymap.set('n', '<leader>d', function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end)
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)                    -- go to declaration
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)                     -- go to definition
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)                           -- hover
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)                 -- go to implementation
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)              -- signature help
+    -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)    -- 
+    -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    -- vim.keymap.set('n', '<space>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, opts)
+    vim.keymap.set('n', '<space>d', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>a', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    -- vim.keymap.set('n', '<space>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, opts)
+  end,
+})
