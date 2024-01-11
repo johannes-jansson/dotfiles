@@ -24,6 +24,8 @@
     pkgs.signal-desktop
     pkgs.slack
     pkgs.spotify
+    pkgs.xfce.thunar-archive-plugin
+    pkgs.xfce.thunar-volman
     pkgs.vlc
     pkgs.vscode
     pkgs.zathura
