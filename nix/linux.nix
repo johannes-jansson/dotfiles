@@ -18,6 +18,7 @@
     pkgs.gnome.pomodoro
     pkgs.insomnia
     pkgs.kazam
+    pkgs.kicad
     pkgs.libreoffice
     pkgs.pinta
     pkgs.rpi-imager
