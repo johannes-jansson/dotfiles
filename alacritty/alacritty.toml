@@ -1,0 +1,30 @@
+import = [
+    "/Users/johannes/.config/alacritty/themes/pencil_dark.toml"
+]
+
+[font]
+size = 14
+
+  [font.normal]
+  family = "Hasklug Nerd Font"
+  style = "Light"
+
+  [font.bold]
+  family = "Hasklug Nerd Font"
+  style = "Semibold"
+
+  [font.italic]
+  family = "Hasklug Nerd Font"
+  style = "Light Italic"
+
+  [font.bold_italic]
+  family = "Hasklug Nerd Font"
+  style = "Semibold Italic"
+
+[bell]
+duration = 50
+color = "#999999"
+
+[window]
+decorations = "buttonless"
+dimensions = { columns=100, lines=50 }
