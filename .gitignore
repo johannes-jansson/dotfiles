@@ -1,3 +1,4 @@
+.direnv/
 home.nix
 nixos/result
 nvim/plugged
