@@ -3,20 +3,24 @@
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
-    enableAutosuggestions = true;
+    # enableAutosuggestions = true;
     enableCompletion = true;
     history = {
       save = 10000;
       size = 10000;
     };
-    # syntaxHighlighting.enable = true;
+    syntaxHighlighting.enable = true;
 
     sessionVariables = {
+      # TERM = "alacritty";
+      TERM = "xterm-256color";
       EDITOR = "${pkgs.neovim}/bin/nvim";
       GPG_TTY = "$(tty)";
       KEYTIMEOUT = 1;
       NOTESDIR = "${config.home.homeDirectory}/Dropbox/md";
       VISUAL = "${pkgs.neovim}/bin/nvim";
+      JABBA_VERSION = "0.11.2";
+      JABBA_HOME = "$HOME/.jabba";
     };
 
     shellAliases = {
@@ -25,20 +29,14 @@
       naked = "nvim -u ${config.home.homeDirectory}/dotfiles/nvim/essential.vim";
       notes = "nvim $NOTESDIR/$(date +'%Y-%m-%d').md --cmd 'cd %:p:h'";
       fu = "vim . '+:G'";
-      l = "ls -ghA";
+      l = "eza -ghA";
       c = "clear";
-      lapse = "ffmpeg -r 24 -pattern_type glob -i '*.JPG' -s hd1080 -vcodec libx264 timelapse.mp4";
       coin = "echo $((RANDOM%2))";
       wttr = "curl wttr.in/hässleholm";
-      hms = "home-manager switch";
-      nrs = "sudo nixos-rebuild switch";
+      bbic = "brew update &&\
+          brew bundle install --cleanup --file=~/.config/Brewfile --no-lock &&\
+          brew upgrade";
 
-      # pgcli
-      pgc = "pgcli -d jojnts_development";
-      # pgb = "pgcli -h localhost -p 5435 -d bi -u etl";
-      # pgu = "pgcli -h localhost -p 5434 -d db -u aptible";
-      # pge = "pgcli -h localhost -p 5433 -d db -u aptible";
-      
       # tmux
       tls = "tmux list-sessions";
       ta = "tmux attach -t";
@@ -52,10 +50,11 @@
       if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
           tmux attach -t default || tmux new -s default
       fi
-      eval $(thefuck --alias)
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
       fi
+      [[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath+=(/opt/homebrew/share/zsh/site-functions)
+      [ -s "$JABBA_HOME/jabba.sh" ] && source "$JABBA_HOME/jabba.sh"
     '';
 
     profileExtra = ''
@@ -78,11 +77,6 @@
         name = "powerlevel10k-config";
         src = lib.cleanSource ../p10k;
         file = "p10k.zsh";
-      }
-      {
-        name = "you-should-use";
-        src = "${pkgs.zsh-you-should-use}";
-        file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
       }
     ];
 

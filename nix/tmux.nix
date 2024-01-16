@@ -50,8 +50,8 @@
       set-window-option -g mode-keys vi
       set-option -sg escape-time 10
       
-      set -g default-terminal "xterm-256color"
-      set-option -ga terminal-overrides ",xterm-256color:Tc"
+      set -g default-terminal "alacritty"
+      # set-option -ga terminal-overrides ",xterm-256color:Tc"
       
       # Smart pane switching with awareness of Vim splits.
       # See: https://github.com/christoomey/vim-tmux-navigator

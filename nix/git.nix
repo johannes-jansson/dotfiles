@@ -2,8 +2,7 @@
   programs.gh.enable = true;
   programs.git = {
     enable = true;
-    userName = "Johannes Jansson";
-    userEmail = "johannes.e.jansson@gmail.com";
+    userName = "johannes-jansson";
 
     # Fancy diff viewer
     delta = {
@@ -29,7 +28,6 @@
 
       pull = {
         default = "current";
-        /* rebase = true; */
         rebase = false;
       };
 
@@ -49,8 +47,6 @@
 
     lfs.enable = true;
 
-
     signing.signByDefault = true;
-
   };
 }
