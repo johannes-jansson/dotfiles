@@ -1,15 +1,20 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 " Random plugins
 " Plug 'chrisbra/csv.vim'
 Plug 'andrewradev/linediff.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'jpalardy/vim-slime'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
-" Plug 'nvim-lua/plenary.nvim'                     " LUA util functions, used in nvim-metals
-Plug 'prettier/vim-prettier'
+Plug 'nvim-lua/plenary.nvim'                     " LUA util functions, used in nvim-metals
+Plug 'scalameta/nvim-metals'                     " Scala LSP
 
 " TS/LS stuff
 Plug 'hrsh7th/nvim-cmp'
@@ -21,10 +26,8 @@ Plug 'L3MON4D3/LuaSnip'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 " Plug 'hrsh7th/cmp-path'
 " Plug 'hrsh7th/nvim-cmp'
-" Plug 'nanotee/sqls.nvim'
-" Plug 'joe-re/sql-language-server'
 Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Visual
 " Plug 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
@@ -35,12 +38,13 @@ Plug 'vim-airline/vim-airline'                     " Simple feature rich statusb
 Plug 'vim-airline/vim-airline-themes'
 
 " Writing
-Plug 'dpelle/vim-LanguageTool'                     " Spelling
+" Plug 'dpelle/vim-LanguageTool'                     " Spelling
 Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
 Plug 'reedes/vim-pencil'                           " Markdown tools
 
 " All hail tpope
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'                           " GitHub
 Plug 'tpope/vim-sensible'
@@ -89,6 +93,11 @@ nnoremap <Leader>lc :LanguageToolCheck<CR>
 " Colors
 set background=dark
 colorscheme pencil
+let g:pencil_terminal_italics = 1
+let g:pencil_gutter_color = 1      " 0=mono (def), 1=color
+let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
+" highlight Search ctermbg=8 guibg=#424242
+highlight Search ctermbg=240
 
 let g:thematic#themes = {
 \ 'light' :{'colorscheme': 'pencil',

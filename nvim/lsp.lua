@@ -54,28 +54,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if not client.server_capabilities.documentFormattingProvider then
       return
     end
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      group = get_augroup(client),
-      buffer = bufnr,
-      callback = function()
-        if not format_is_enabled then
-          return
-        end
-        vim.lsp.buf.format {
-          async = false,
-          filter = function(c)
-            return c.id == client.id
-          end,
-        }
-      end,
-    })
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --   group = get_augroup(client),
+    --   buffer = bufnr,
+    --   callback = function()
+    --     if not format_is_enabled then
+    --       return
+    --     end
+    --     vim.lsp.buf.format {
+    --       async = false,
+    --       filter = function(c)
+    --         return c.id == client.id
+    --       end,
+    --     }
+    --   end,
+    -- })
   end,
 })
 
 
 lspconfig.pyright.setup {}
 lspconfig.rnix.setup{}
-lspconfig.metals.setup{}
+-- lspconfig.metals.setup{}
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

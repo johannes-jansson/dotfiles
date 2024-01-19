@@ -21,7 +21,8 @@ set smartindent     " Automatic indentation
 set shiftround      " When at 1 space, and I hit > ... go to 2, not 3
 
 " Appearance section
-set termguicolors
+" set termguicolors
+set notermguicolors
 set visualbell
 set scrolloff=5
 set lazyredraw
