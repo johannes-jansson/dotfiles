@@ -74,6 +74,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 lspconfig.pyright.setup {}
+lspconfig.tsserver.setup {}
 lspconfig.rnix.setup{}
 -- lspconfig.metals.setup{}
 

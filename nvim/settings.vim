@@ -1,16 +1,15 @@
-set nocompatible
-
-set undolevels=1000
-set hidden
 set foldlevel=999
 set foldmethod=expr
 " set foldmethod=indent
 set foldexpr=nvim_treesitter#foldexpr()
+
 set mouse=a
-set directory^=$HOME/.config/nvim/swap//
 set undofile
-set undodir=$HOME/.config/nvim/undodir
 set nowrap
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " Tabs vs spaces section
 set shiftwidth=2    " Autoindent tab length
@@ -50,9 +49,9 @@ function! ToggleSpellCheck()
 endfunction
 nnoremap <silent> <Leader>ts :call ToggleSpellCheck()<CR>
 
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
+
+" Copy selected text to system clipboard (macos and linux)
+vnoremap <silent> <leader>y "*y :let @+=@*<cr>
 
 augroup vimrcEx
   autocmd!
@@ -62,13 +61,3 @@ augroup vimrcEx
     \   exe "normal! g`\"" |
     \ endif
 augroup END
-
-
-autocmd BufEnter *.notest_sql :setlocal filetype=sql
-
-" if exists("did_load_filetypes")
-"     finish
-" endif
-" augroup filetypedetect
-"     au! BufRead,BufNewFile *.notest_sql       setfiletype sql
-" augroup END

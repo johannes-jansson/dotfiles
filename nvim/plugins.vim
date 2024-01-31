@@ -1,60 +1,3 @@
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-
-" Random plugins
-" Plug 'chrisbra/csv.vim'
-Plug 'andrewradev/linediff.vim'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-sneak'
-Plug 'nvim-lua/plenary.nvim'                     " LUA util functions, used in nvim-metals
-Plug 'scalameta/nvim-metals'                     " Scala LSP
-
-" TS/LS stuff
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-cmdline'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/nvim-cmp'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Visual
-" Plug 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'reedes/vim-colors-pencil'                    " Color scheme
-Plug 'reedes/vim-thematic'                         " Allows fast toggle between dark and light theme
-Plug 'vim-airline/vim-airline'                     " Simple feature rich statusbar
-Plug 'vim-airline/vim-airline-themes'
-
-" Writing
-" Plug 'dpelle/vim-LanguageTool'                     " Spelling
-Plug 'junegunn/goyo.vim'                           " Distraction free writing mode
-Plug 'reedes/vim-pencil'                           " Markdown tools
-
-" All hail tpope
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'                           " GitHub
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-speeddating'                       " <C-A> <C-X> for dates
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'                        " [] mappings
-Plug 'tpope/vim-vinegar'                           " Enhance netrw
-
-call plug#end()
-
 " Finding (mostly fzf)
 if executable('rg')
     set grepprg=rg\ --color=never\ --vimgrep
@@ -86,10 +29,6 @@ augroup pencil
   autocmd FileType text            call pencil#init()
 augroup END
 
-" LanguageTool
-let g:languagetool_cmd='$HOME/.nix-profile/bin/languagetool-commandline'
-nnoremap <Leader>lc :LanguageToolCheck<CR>
-
 " Colors
 set background=dark
 colorscheme pencil
@@ -118,4 +57,40 @@ let g:airline_section_y='' " replace encoding w
 
 set completeopt=menu,menuone,noselect " used in nvim-cmp
 
-lua require('gitsigns').setup()
+" " Fern
+" " let g:fern#renderer = "nerdfont"
+" noremap <silent> <Leader>d :Fern . -drawer -width=35 -toggle<CR><C-w>=
+" " noremap <silent> <Leader>f :Fern . -drawer -reveal=% -width=35<CR><C-w>=
+" 
+" function! FernInit() abort
+"   set nonu
+"   nmap <buffer><expr>
+"         \ <Plug>(fern-my-open-expand-collapse)
+"         \ fern#smart#leaf(
+"         \   "\<Plug>(fern-action-open:select)",
+"         \   "\<Plug>(fern-action-expand)",
+"         \   "\<Plug>(fern-action-collapse)",
+"         \ )
+"   nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
+"   nmap <buffer> <2-LeftMouse> <Plug>(fern-my-open-expand-collapse)
+"   nmap <buffer> m <Plug>(fern-action-mark-toggle)j
+"   nmap <buffer> N <Plug>(fern-action-new-file)
+"   nmap <buffer> K <Plug>(fern-action-new-dir)
+"   nmap <buffer> D <Plug>(fern-action-remove)
+"   nmap <buffer> R <Plug>(fern-action-move)
+"   nmap <buffer> s <Plug>(fern-action-open:split)
+"   nmap <buffer> v <Plug>(fern-action-open:vsplit)
+"   nmap <buffer> r <Plug>(fern-action-reload)
+"   nmap <buffer> q :q<CR>
+"   nmap <buffer> <nowait> d <Plug>(fern-action-hidden-toggle)j
+"   nmap <buffer> <nowait> < <Plug>(fern-action-leave)
+"   nmap <buffer> <nowait> > <Plug>(fern-action-enter)
+" endfunction
+" 
+" augroup FernGroup
+"   autocmd!
+"   autocmd FileType fern call FernInit()
+"   autocmd FileType fern call glyph_palette#apply()
+" augroup END
+
+

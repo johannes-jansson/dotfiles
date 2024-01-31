@@ -10,7 +10,7 @@ noremap <silent> <Leader>w :w<CR>
 noremap <silent> <Leader>q :q<CR>
 noremap <silent> <Leader>v :vsp<CR> 
 noremap <silent> <Leader>s :sp<CR> 
-noremap <silent> <Leader>c :copen<CR>
+noremap <silent> <Leader>co :copen<CR>
 noremap <silent> <Leader>z :tabnew %<CR>
 noremap <Leader>b :ls<CR>:b<space>
 
@@ -25,8 +25,3 @@ nnoremap tc :tabclose<CR>
 " use w!! if you forgot sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" search for selected text by double tapping /
-vnoremap // y/<C-R>"<CR>
-
-" Copy selected text to system clipboard (macos and linux)
-vnoremap <silent> <leader>y "*y :let @+=@*<cr>
