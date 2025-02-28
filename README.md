@@ -11,6 +11,10 @@ To apply changes, run `home-manager switch`.
 NixOS configuration resides in the `nixos` folder.
 To apply changes, run `sudo nixos-rebuild switch`. 
 
+### Note to self next time NixOS UEFI boot entry breaks:
+1. Run rEFInd from a live USB to boot into the installation.
+2. Run `sudo nixos-rebuild --install-bootloader boot`. 
+
 ## Other dotfiles
 - zsh - dotfile linked by home-manager.
 - NeoVIM - plugins handled by plug. Linked by home-manager.
